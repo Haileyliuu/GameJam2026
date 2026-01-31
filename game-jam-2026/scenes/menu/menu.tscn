@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=6 format=3 uid="uid://c2gocuhw2o7py"]
 
+[ext_resource type="PackedScene" uid="uid://c45igbpwwjj8u" path="res://scenes/menu/node_3d.tscn" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
 [ext_resource type="Script" uid="uid://dfnwymtygg1to" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
@@ -14,14 +15,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="SubViewportContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.176471, 0.682353, 0.647059, 1)
+
+[node name="SubViewport" type="SubViewport" parent="ColorRect"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="ColorRect/SubViewport" instance=ExtResource("2_y1o0p")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
