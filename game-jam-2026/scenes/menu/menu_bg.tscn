@@ -13,7 +13,7 @@ tracks/0/path = NodePath("camera:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 7, 20), Vector3(0, 7, -13.2505245)]
@@ -71,7 +71,7 @@ fog_depth_end = 190.1
 
 [node name="menu_background" type="Node3D"]
 
-[node name="camera_movement" type="AnimationPlayer" parent="."]
+[node name="epic_opening" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ebm3s")
 }
@@ -85,7 +85,7 @@ environment = SubResource("Environment_dubcm")
 
 [node name="spotlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 32, 8.579491)
-light_energy = 6.938
+light_energy = 0.0
 spot_range = 126.424
 spot_angle = 13.45
 
