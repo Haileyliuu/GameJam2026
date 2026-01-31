@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://djfi3e5ltuljs"]
+
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_qbbvd"]
+[ext_resource type="Script" uid="uid://135a1mmlfxj4" path="res://scenes/gameplay/player.gd" id="2_jdvhy"]
+[ext_resource type="Script" uid="uid://6gvjr46md4rw" path="res://scenes/gameplay/enemy_chasing.gd" id="3_jdvhy"]
+[ext_resource type="Script" uid="uid://hxdlt2h6abet" path="res://scenes/gameplay/enemy_patrolling.gd" id="4_pr4k0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdvhy"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pr4k0"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ua2n5"]
+radius = 300.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(117, 95)
+texture = ExtResource("1_qbbvd")
+script = ExtResource("2_jdvhy")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+position = Vector2(0, 1)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("CircleShape2D_jdvhy")
+
+[node name="EnemyStationary" type="Sprite2D" parent="."]
+modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
+position = Vector2(180, 426)
+texture = ExtResource("1_qbbvd")
+
+[node name="Area2D" type="Area2D" parent="EnemyStationary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStationary/Area2D"]
+shape = SubResource("CircleShape2D_pr4k0")
+
+[node name="EnemyChasing" type="Sprite2D" parent="."]
+modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
+position = Vector2(488, 547)
+texture = ExtResource("1_qbbvd")
+script = ExtResource("3_jdvhy")
+
+[node name="Area2D" type="Area2D" parent="EnemyChasing"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyChasing/Area2D"]
+shape = SubResource("CircleShape2D_pr4k0")
+
+[node name="EnemyPatrolling" type="Sprite2D" parent="." node_paths=PackedStringArray("all_markers")]
+modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
+position = Vector2(848, 590)
+texture = ExtResource("1_qbbvd")
+script = ExtResource("4_pr4k0")
+all_markers = [NodePath("../Track/Marker2D"), NodePath("../Track/Marker2D2"), NodePath("../Track/Marker2D3"), NodePath("../Track/Marker2D4")]
+
+[node name="Area2D" type="Area2D" parent="EnemyPatrolling"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPatrolling/Area2D"]
+shape = SubResource("CircleShape2D_pr4k0")
+
+[node name="Area_for_breaking_patrol" type="Area2D" parent="EnemyPatrolling"]
+position = Vector2(1, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPatrolling/Area_for_breaking_patrol"]
+shape = SubResource("CircleShape2D_ua2n5")
+
+[node name="Track" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Track"]
+position = Vector2(838, 580)
+
+[node name="Marker2D2" type="Marker2D" parent="Track"]
+position = Vector2(832, 269)
+
+[node name="Marker2D3" type="Marker2D" parent="Track"]
+position = Vector2(1150, 260)
+
+[node name="Marker2D4" type="Marker2D" parent="Track"]
+position = Vector2(1154, 585)
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="hit"]
+[connection signal="area_entered" from="EnemyPatrolling/Area_for_breaking_patrol" to="EnemyPatrolling" method="break_patrol"]
