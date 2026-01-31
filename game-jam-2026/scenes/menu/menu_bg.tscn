@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://c45igbpwwjj8u"]
+
+[ext_resource type="Texture2D" uid="uid://b8k8fnbbecde2" path="res://scenes/menu/superepicawesomedoor.png" id="2_6oxg6"]
+[ext_resource type="Texture2D" uid="uid://d4kbmh0n2ebyq" path="res://scenes/menu/floor.jpg" id="2_dubcm"]
+
+[sub_resource type="Animation" id="Animation_o07k5"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("camera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 7, 20), Vector3(0, 7, -13.2505245)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.49233, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebm3s"]
+_data = {
+&"RESET": SubResource("Animation_o07k5")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dubcm"]
+albedo_texture = ExtResource("2_dubcm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o07k5"]
+material = SubResource("StandardMaterial3D_dubcm")
+size = Vector2(5, 5)
+
+[sub_resource type="Environment" id="Environment_dubcm"]
+background_mode = 1
+fog_mode = 1
+fog_density = 1.0
+fog_sky_affect = 0.406
+fog_depth_curve = 0.707106
+fog_depth_begin = 0.0
+fog_depth_end = 190.1
+
+[node name="menu_background" type="Node3D"]
+
+[node name="camera_movement" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ebm3s")
+}
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_o07k5")
+
+[node name="world" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dubcm")
+
+[node name="spotlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 32, 8.579491)
+light_energy = 6.938
+spot_range = 126.424
+spot_angle = 13.45
+
+[node name="omnilight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2581, 0)
+omni_range = 34.728
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 20)
+
+[node name="door" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.742045, 0, 0)
+
+[node name="door_picture" type="Sprite3D" parent="door"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.889183, 6.107966, 0)
+texture_filter = 0
+texture = ExtResource("2_6oxg6")

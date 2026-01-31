@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtpjc5yy4ft8"
-path.s3tc="res://.godot/imported/door.png-8354cc304a3962f086d5113ce11e0be0.s3tc.ctex"
-path.etc2="res://.godot/imported/door.png-8354cc304a3962f086d5113ce11e0be0.etc2.ctex"
+uid="uid://b8k8fnbbecde2"
+path.s3tc="res://.godot/imported/superepicawesomedoor.png-a6430f268d506adfd0c956c9492f7527.s3tc.ctex"
+path.etc2="res://.godot/imported/superepicawesomedoor.png-a6430f268d506adfd0c956c9492f7527.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/menu/door.png"
-dest_files=["res://.godot/imported/door.png-8354cc304a3962f086d5113ce11e0be0.s3tc.ctex", "res://.godot/imported/door.png-8354cc304a3962f086d5113ce11e0be0.etc2.ctex"]
+source_file="res://scenes/menu/superepicawesomedoor.png"
+dest_files=["res://.godot/imported/superepicawesomedoor.png-a6430f268d506adfd0c956c9492f7527.s3tc.ctex", "res://.godot/imported/superepicawesomedoor.png-a6430f268d506adfd0c956c9492f7527.etc2.ctex"]
 
 [params]
 

@@ -2,7 +2,10 @@ extends Control
 
 @onready var btn_play = $MarginContainer/Control/VBoxContainer/PlayButton
 @onready var btn_exit = $MarginContainer/Control/VBoxContainer/ExitButton
-
+@onready var subviewport: SubViewport = $ColorRect/SubViewport
+@onready var anim_player: AnimationPlayer = subviewport.get_node(
+	"menu_background/camera_movement"
+)
 
 func _ready():
 	# needed for gamepads to work
@@ -12,6 +15,9 @@ func _ready():
 
 
 func _on_PlayButton_pressed() -> void:
+	anim_player.play("RESET")
+	await anim_player.animation_finished
+	
 	var params = {
 		"show_progress_bar": true,
 		"a_number": 10,
