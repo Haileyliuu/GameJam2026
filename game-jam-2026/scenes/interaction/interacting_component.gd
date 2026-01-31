@@ -19,8 +19,8 @@ func _process(_delta: float) -> void:
 		if current_interactions[0].is_interactable:
 			interact_label.text = current_interactions[0].interact_name
 			interact_label.show()
-		else:
-			interact_label.hide()
+	else:
+		interact_label.hide()
 		
 
 func _sort_by_nearest(area1, area2):

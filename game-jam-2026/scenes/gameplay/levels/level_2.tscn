@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://btxis34q73br4"]
+[gd_scene load_steps=7 format=4 uid="uid://btxis34q73br4"]
 
 [ext_resource type="TileSet" uid="uid://5uoj020sg2j6" path="res://resources/tileset.tres" id="1_gkk1m"]
 [ext_resource type="Script" uid="uid://db2u8yoltn73n" path="res://scenes/gameplay/test_player.gd" id="2_2jj6v"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_1putk"]
+[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="4_1putk"]
+[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4swv1"]
 radius = 4.0
@@ -21,12 +23,12 @@ tile_set = ExtResource("1_gkk1m")
 
 [node name="SideWalls" type="TileMapLayer" parent="Walls"]
 z_index = 1
-tile_map_data = PackedByteArray("AAAIAAYAAAABAAkAAAAIAAcAAAABAAkAAAAIAAoAAAABAAkAAAAIAAsAAAABAAkAAAAIAAwAAAABAAkAAAAIAA0AAAABAAkAAAAIAA4AAAABAAkAAAAGAA8AAAACAAgAAAAGABEAAAACAAoAAAAGABAAAAABAAkAAAAVAAkAAAADAAgAAAAVAAoAAAABAAkAAAAVAAsAAAACAAkAAAAVAAwAAAABAAkAAAAVABAAAAACAAkAAAAVABEAAAAEAAoAAAAVAA8AAAACAAgAAAAYAAQAAAAEAAgAAAAYAAUAAAABAAkAAAAYAAYAAAABAAkAAAAYAAcAAAABAAkAAAAIAAUAAAABAAkAAAAIAAQAAAACAAgAAAAIAAgAAAACAAoAAAAYAAgAAAAEAAoAAAAIAAkAAAACAAgAAAANAAgAAAACAAgAAAAKAAgAAAAEAAgAAAAaAAsAAAAEAAgAAAAaAAwAAAABAAkAAAAaAA0AAAABAAkAAAAaAA4AAAABAAkAAAAaAA8AAAABAAkAAAAaABAAAAAEAAoAAAAWAAsAAAACAAgAAAAWAAwAAAABAAkAAAAWABAAAAACAAoAAAAWAA8AAAAEAAgAAAA=")
+tile_map_data = PackedByteArray("AAAIAAYAAAABAAkAAAAIAAcAAAABAAkAAAAIAAoAAAABAAkAAAAIAAsAAAABAAkAAAAIAAwAAAABAAkAAAAIAA0AAAABAAkAAAAIAA4AAAABAAkAAAAGAA8AAAACAAgAAAAGABEAAAACAAoAAAAGABAAAAABAAkAAAAVAAkAAAAEAAgAAAAVAAoAAAABAAkAAAAVAAsAAAABAAkAAAAVAAwAAAABAAkAAAAVABAAAAACAAkAAAAVABEAAAAEAAoAAAAVAA8AAAACAAgAAAAYAAQAAAAEAAgAAAAYAAUAAAABAAkAAAAYAAYAAAABAAkAAAAYAAcAAAABAAkAAAAIAAUAAAABAAkAAAAIAAQAAAACAAgAAAAIAAgAAAACAAoAAAAYAAgAAAAEAAoAAAAIAAkAAAACAAgAAAANAAgAAAACAAgAAAAKAAgAAAAEAAgAAAAaAAsAAAAEAAgAAAAaAAwAAAABAAkAAAAaAA0AAAABAAkAAAAaAA4AAAABAAkAAAAaAA8AAAABAAkAAAAaABAAAAAEAAoAAAAWAAsAAAACAAgAAAAWAAwAAAABAAkAAAAWABAAAAACAAoAAAAWAA8AAAAEAAgAAAA=")
 tile_set = ExtResource("1_gkk1m")
 
 [node name="TestPlayer" type="CharacterBody2D" parent="."]
 y_sort_enabled = true
-position = Vector2(163, 250)
+position = Vector2(128, 268)
 script = ExtResource("2_2jj6v")
 
 [node name="Camera2D" type="Camera2D" parent="TestPlayer"]
@@ -41,3 +43,9 @@ region_rect = Rect2(999.0367, 516.81964, 29.686829, 30.072388)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlayer"]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_4swv1")
+
+[node name="InteractingComponent" parent="TestPlayer" instance=ExtResource("4_1putk")]
+position = Vector2(-1, -4)
+
+[node name="Interactable" parent="." instance=ExtResource("5_4swv1")]
+position = Vector2(371, 91)
