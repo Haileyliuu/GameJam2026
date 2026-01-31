@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var all_markers: Array[Node2D] = []
-@export var speed: float = 100
+@export var speed: float = 200
 func _ready():
 	current_target_marker = all_markers[0]
 
