@@ -31,3 +31,26 @@ func pickup(item: Item):
 func toggle_item(item:int, active:bool):
 	prints("the player", "is" if active else "isn't", "wearing", item)
 	GlobalState.player_wears_mask[item] = active
+
+
+
+
+
+func bump_into_enemy(enemy: Enemy):
+	var enemy_ignored = true
+	for idx in len(enemy.mask_pieces):
+		if enemy.mask_pieces[idx]!=GlobalState.player_wears_mask[idx]:
+			enemy_ignored = false
+			break
+	if enemy_ignored:
+		prints("The enemy ignored the player because masks match")
+	else:
+		prints("Enemy hit the player")
+		game_over()
+
+signal player_died
+func game_over():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.BLACK, 0.2)
+	tween.tween_callback(player_died.emit)
+	get_tree().change_scene_to_file("res://scenes/gameplay/levels/jumpscare/jumpscare.tscn")

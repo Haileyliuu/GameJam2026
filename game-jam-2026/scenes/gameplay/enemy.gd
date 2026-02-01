@@ -5,7 +5,7 @@ class_name Enemy
 var target_player : Node2D
 var popped := false
 
-
+@export var mask_pieces: Array[bool] = [false,false,false]
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

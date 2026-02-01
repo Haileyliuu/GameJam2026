@@ -96,6 +96,7 @@ theme_override_fonts/font = ExtResource("3_y1o0p")
 text = "START"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
@@ -172,19 +173,6 @@ offset_left = 530.0
 offset_top = 324.0
 offset_right = 742.0
 offset_bottom = 406.0
-texture = ExtResource("6_r8yej")
-region_rect = Rect2(320, 0, 64, 64)
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 410.0
-offset_right = 742.0
-offset_bottom = 492.0
 texture = ExtResource("6_r8yej")
 region_rect = Rect2(320, 0, 64, 64)
 patch_margin_left = 20

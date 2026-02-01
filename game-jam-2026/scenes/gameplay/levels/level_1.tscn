@@ -4,13 +4,13 @@
 [ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="1_bbcek"]
 [ext_resource type="AudioStream" uid="uid://hc0cedpujooq" path="res://sounds/horror-music-box-375927.mp3" id="4_vy56g"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
-[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
+[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_rlvxr"]
 [ext_resource type="Script" uid="uid://507mfy03a2xq" path="res://scenes/gameplay/levels/chest.gd" id="7_77int"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="8_74tmx"]
 [ext_resource type="Resource" uid="uid://bpx3c7yuc5nfi" path="res://scenes/hud/item1.tres" id="8_apf2o"]
 [ext_resource type="PackedScene" uid="uid://dt5w04p1r2277" path="res://scenes/hud/ui.tscn" id="9_74tmx"]
-[ext_resource type="PackedScene" uid="uid://dbutn0h5xvpuq" path="res://scenes/gameplay/enemy16px.tscn" id="11_5mjif"]
+[ext_resource type="PackedScene" uid="uid://ddc7s1rkn0agr" path="res://scenes/gameplay/enemy16px.tscn" id="11_5mjif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rlvxr"]
 
@@ -116,7 +116,9 @@ position = Vector2(194, 133)
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("11_5mjif")]
 position = Vector2(71, 47)
 patrol_track = NodePath("../Track1")
+mask_pieces = Array[bool]([true, false, false])
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("11_5mjif")]
 position = Vector2(71, 47)
 patrol_track = NodePath("../Track2")
+mask_pieces = Array[bool]([true, false, false])

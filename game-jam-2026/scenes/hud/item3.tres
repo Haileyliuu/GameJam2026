@@ -7,7 +7,7 @@ load_path = "res://.godot/imported/Placeholder_Tilemap.png-f371e71e8678499227d0a
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxnxt"]
 atlas = SubResource("CompressedTexture2D_2brp2")
-region = Rect2(942, 338, 16, 16)
+region = Rect2(816, 64, 16, 16)
 
 [resource]
 script = ExtResource("1_xus64")
