@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dt2hleulx4ghr"]
 
-[ext_resource type="AudioStream" uid="uid://bdnqrobfwfp5n" path="res://assets/audio/door_creak.mp3" id="1_aspbr"]
+[ext_resource type="AudioStream" uid="uid://bdnqrobfwfp5n" path="res://sounds/door_creak.mp3" id="1_aspbr"]
 [ext_resource type="Texture2D" uid="uid://bhs74nm7dw1hm" path="res://assets/ground.png" id="2_fx6fe"]
 [ext_resource type="Texture2D" uid="uid://b8k8fnbbecde2" path="res://assets/superepicawesomedoor.png" id="3_aspbr"]
 [ext_resource type="Texture2D" uid="uid://cnuiha6tcfw3" path="res://assets/house.png" id="4_fx6fe"]
@@ -101,9 +101,17 @@ spot_range = 150.076
 spot_angle = 11.48
 
 [node name="omnilight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.090542, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.713657, 10.439913)
 light_energy = 4.518
-omni_range = 76.86
+omni_range = 387.35
+
+[node name="treelight" type="OmniLight3D" parent="omnilight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.78658, -5.5013905, -3.834694)
+omni_range = 10.959
+
+[node name="bushlight" type="OmniLight3D" parent="omnilight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.284138, -7.1364727, -5.4956856)
+omni_range = 10.959
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755, 17.322157, 26.725342)
@@ -113,6 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.814, -0.706, 0)
 
 [node name="door_picture" type="Sprite3D" parent="door"]
 transform = Transform3D(5.4, 0, 0, 0, 5.4, 0, 0, 0, 5.4, 1.6958613, 3.735755, 0)
+shaded = true
 texture_filter = 0
 texture = ExtResource("3_aspbr")
 
@@ -122,4 +131,5 @@ stream = SubResource("AudioStreamPolyphonic_fx6fe")
 
 [node name="house" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 18.155987, 0)
+shaded = true
 texture = ExtResource("4_fx6fe")

@@ -21,6 +21,7 @@ config/icon="res://assets/sprites/icon.png"
 
 GGT="*res://addons/ggt-core/ggt.gd"
 GGT_DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
+GlobalState="*res://scenes/global_state.gd"
 
 [category]
 
@@ -36,6 +37,10 @@ window/stretch/aspect="keep_width"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg")
+
+[global_group]
+
+Player=""
 
 [gui]
 

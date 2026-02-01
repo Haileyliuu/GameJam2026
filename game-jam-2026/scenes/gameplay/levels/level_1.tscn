@@ -106,4 +106,6 @@ position = Vector2(120, 80)
 position = Vector2(120, 48)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("11_5mjif")]
+position = Vector2(71, 47)
+mask_pieces = Array[bool]([true, false, false])
 patrol_track = NodePath("../Track1")

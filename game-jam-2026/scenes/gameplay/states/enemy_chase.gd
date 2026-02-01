@@ -4,6 +4,7 @@ class_name EnemyChase
 
 var player : CharacterBody2D
 @export var speed := 100
+@export var arrive_dist := 8
 @export var enemy : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
@@ -25,17 +26,20 @@ func physics_update(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	
 	
-	if direction.length() > 20:
+	if direction.length() > arrive_dist:
 		enemy.velocity = direction.normalized() * speed
 		var dir := direction.normalized()
 		enemy.velocity = dir * speed
 		if dir.length() > 0.001:
-			enemy.rotation = dir.angle()
+			enemy.get_node("VisionCone").rotation = dir.angle()
 	else:
 		enemy.velocity = Vector2.ZERO
 	
-	#if direction.length() > 50: 
-		#transition.emit(self, "idle")
+	if enemy.velocity.x > 1:
+		enemy.get_node("Sprite").flip_h = false
+	elif enemy.velocity.x < -1:
+		enemy.get_node("Sprite").flip_h = true
+
 	 
 
 	enemy.move_and_slide()

@@ -16,6 +16,7 @@ const LIGHT_TWEEN_TIME := 0.3
 
 func _ready():
 	# needed for gamepads to work
+	$AudioStreamPlayer.play()
 	btn_play.grab_focus()
 	if OS.has_feature('web'):
 		btn_exit.queue_free() # exit button dosn't make sense on HTML5

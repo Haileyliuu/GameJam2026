@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=8 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="PackedScene" uid="uid://dt2hleulx4ghr" path="res://scenes/menu/menu_bg.tscn" id="2_y1o0p"]
-[ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
+[ext_resource type="FontFile" uid="uid://c8h7m3lx1lmx6" path="res://assets/fonts/Early GameBoy.ttf" id="3_y1o0p"]
+[ext_resource type="Script" uid="uid://dfnwymtygg1to" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
+[ext_resource type="Script" uid="uid://baky6bgu7psf2" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
+[ext_resource type="Texture2D" uid="uid://ckl5m477spcg7" path="res://assets/Deco All 5.png" id="6_r8yej"]
+[ext_resource type="AudioStream" uid="uid://dmachkteqws5d" path="res://sounds/horror-background-118577.mp3" id="7_3y2rt"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -53,11 +57,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="MarginContainer/Control/CenterContainer"]
+visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 60
 text = "The Dollhouse"
+vertical_alignment = 1
 uppercase = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Control/CenterContainer"]
+custom_minimum_size = Vector2(760, 75)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_y1o0p")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[wave amp=30][shake rate=100]The Dollhouse[/shake][/wave]"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
@@ -77,8 +91,9 @@ theme_override_constants/separation = 16
 [node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../CreditsButton")
-focus_next = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 text = "START"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
@@ -86,7 +101,64 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
-text = "CREDITS"
+theme_override_fonts/font = ExtResource("3_y1o0p")
+text = "EXIT"
+
+[node name="Version" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 122.0
+grow_vertical = 0
+
+[node name="GameVersion" type="Label" parent="MarginContainer/Control/Version"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_fonts/font = ExtResource("3_y1o0p")
+text = " "
+script = ExtResource("4_3hod2")
+
+[node name="GodotVersion" type="Label" parent="MarginContainer/Control/Version"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("3_y1o0p")
+text = "Godot 4.5"
+script = ExtResource("5_fdyjp")
+
+[node name="Credits" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MadeByLabel" type="Label" parent="MarginContainer/Control/Credits"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_y1o0p")
+text = "Global Game Jam 2026"
+
+[node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+
+[node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
+text = "Developer 2"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
@@ -94,6 +166,35 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
 text = "EXIT"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 324.0
+offset_right = 742.0
+offset_bottom = 406.0
+texture = ExtResource("6_r8yej")
+region_rect = Rect2(320, 0, 64, 64)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 410.0
+offset_right = 742.0
+offset_bottom = 492.0
+texture = ExtResource("6_r8yej")
+region_rect = Rect2(320, 0, 64, 64)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3y2rt")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

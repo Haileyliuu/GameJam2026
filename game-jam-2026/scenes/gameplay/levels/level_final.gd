@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	interactable.interact = _on_interact
+	$UI.toggled_item.connect($Player.toggle_item)
 
 func _on_interact():
 	pass
