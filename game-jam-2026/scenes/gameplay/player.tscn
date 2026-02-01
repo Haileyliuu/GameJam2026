@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://4wei73u4dc0y"]
+[gd_scene load_steps=19 format=3 uid="uid://e72fmsf5yb5d"]
 
-[ext_resource type="Script" uid="uid://ccj4p8e6m3xts" path="res://scenes/gameplay/player.gd" id="1_0j0ot"]
+[ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_0j0ot"]
 [ext_resource type="Texture2D" uid="uid://clw33uxv6g3gt" path="res://assets/sprites/Player_IdleRun.png" id="2_dap4h"]
 [ext_resource type="Texture2D" uid="uid://beykilqsfgche" path="res://assets/Player_Run.png" id="3_ki2oj"]
-[ext_resource type="PackedScene" path="res://scenes/interaction/interacting_component.tscn" id="4_dap4h"]
+[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="4_dap4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dap4h"]
 radius = 4.0
@@ -91,6 +91,19 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_x3qbh"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.22, 0.78)
+colors = PackedColorArray(1, 1, 1, 1, 0.72115386, 0.72115386, 0.72115386, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dap4h"]
+gradient = SubResource("Gradient_x3qbh")
+width = 360
+height = 360
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0j0ot")
 
@@ -108,3 +121,13 @@ shape = SubResource("CircleShape2D_dap4h")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ki2oj")
 animation = &"idle_right"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0.5019608, 0.5019608, 0.5019608, 0.22352941)
+shadow_filter = 2
+shadow_filter_smooth = 8.0
+texture = SubResource("GradientTexture2D_dap4h")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

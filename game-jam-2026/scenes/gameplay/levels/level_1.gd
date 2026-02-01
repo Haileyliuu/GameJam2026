@@ -8,5 +8,6 @@ func _ready() -> void:
 
 func _on_interact():
 	print("interact!")
+	fade.show()
 	await fade.fade(1, 1.5).finished
 	get_tree().change_scene_to_file("res://scenes/gameplay/levels/level_2.tscn")
