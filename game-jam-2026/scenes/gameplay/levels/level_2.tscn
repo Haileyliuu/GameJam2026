@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://btxis34q73br4"]
+[gd_scene load_steps=14 format=4 uid="uid://btxis34q73br4"]
 
-[ext_resource type="Script" uid="uid://bpx50jefut2sw" path="res://scenes/gameplay/levels/level_2.gd" id="1_4swv1"]
-[ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_gkk1m"]
+[ext_resource type="Script" uid="uid://bdvqld6jgt1vc" path="res://scenes/gameplay/levels/level_2.gd" id="1_4swv1"]
+[ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="1_gkk1m"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="2_1putk"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_1putk"]
 [ext_resource type="AudioStream" uid="uid://bjs5ibmwmc4de" path="res://sounds/funhouse-collapse-385639.mp3" id="4_2jj6v"]
 [ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_4swv1"]
-[ext_resource type="Script" path="res://scenes/gameplay/levels/chest.gd" id="8_bnmh0"]
+[ext_resource type="Script" uid="uid://507mfy03a2xq" path="res://scenes/gameplay/levels/chest.gd" id="8_bnmh0"]
+[ext_resource type="Resource" uid="uid://bf7duie2p5mxm" path="res://scenes/hud/item2.tres" id="8_xyo5e"]
+[ext_resource type="PackedScene" uid="uid://dt5w04p1r2277" path="res://scenes/hud/ui.tscn" id="9_7ef0k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnata"]
 
@@ -54,15 +56,18 @@ position = Vector2(212, 230)
 position = Vector2(160, -139)
 shape = SubResource("CircleShape2D_jnata")
 
-[node name="Player" parent="." instance=ExtResource("2_1putk")]
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_1putk")]
 position = Vector2(128, 263)
+hud = NodePath("../UI")
 
 [node name="Fade" parent="." instance=ExtResource("6_4swv1")]
 visible = false
 
-[node name="Chest" type="StaticBody2D" parent="."]
+[node name="Chest" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(405, 202.5)
 script = ExtResource("8_bnmh0")
+item = ExtResource("8_xyo5e")
+player = NodePath("../Player")
 
 [node name="Sprite" type="Sprite2D" parent="Chest"]
 position = Vector2(0, -2.5)
@@ -79,3 +84,5 @@ shape = SubResource("CircleShape2D_bnmh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
 shape = SubResource("RectangleShape2D_bnmh0")
+
+[node name="UI" parent="." instance=ExtResource("9_7ef0k")]
