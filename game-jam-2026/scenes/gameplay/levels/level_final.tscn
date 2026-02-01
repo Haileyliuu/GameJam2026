@@ -1,18 +1,19 @@
-[gd_scene load_steps=17 format=4 uid="uid://b3jg2kl8ctmux"]
+[gd_scene load_steps=18 format=4 uid="uid://b3jg2kl8ctmux"]
 
-[ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_e2jdp"]
+[ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="1_e2jdp"]
 [ext_resource type="Script" uid="uid://b4qhy2dsl06vi" path="res://scenes/gameplay/levels/level_final.gd" id="1_l1pcm"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="2_6iw1u"]
 [ext_resource type="AudioStream" uid="uid://mg0dlbdduwi4" path="res://sounds/nostalgia-130881.mp3" id="3_nj53g"]
-[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
+[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
 [ext_resource type="Script" uid="uid://de8n7kai8exrc" path="res://scenes/gameplay/levels/podium_1.gd" id="6_77ns4"]
 [ext_resource type="Texture2D" uid="uid://bbkvnh0lj8qta" path="res://assets/sprites/podium1.png" id="6_ubknv"]
 [ext_resource type="Script" uid="uid://bcin55frs08y1" path="res://scenes/gameplay/levels/podium_2.gd" id="8_0u6bq"]
 [ext_resource type="Texture2D" uid="uid://c8lqbuww0g357" path="res://assets/sprites/podium2.png" id="8_hg4au"]
 [ext_resource type="Texture2D" uid="uid://bqlvqmepubuky" path="res://assets/sprites/podium3.png" id="10_er6ek"]
-[ext_resource type="Script" path="res://scenes/gameplay/levels/podium_3.gd" id="11_hg4au"]
+[ext_resource type="Script" uid="uid://djkor4loljups" path="res://scenes/gameplay/levels/podium_3.gd" id="11_hg4au"]
 [ext_resource type="Texture2D" uid="uid://b4qhauqrtxs4k" path="res://assets/mirror.png" id="12_er6ek"]
 [ext_resource type="Script" uid="uid://bujwly4akerht" path="res://scenes/gameplay/levels/mirror.gd" id="13_1h18w"]
+[ext_resource type="PackedScene" uid="uid://dt5w04p1r2277" path="res://scenes/hud/ui.tscn" id="14_h8uu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg4au"]
 size = Vector2(24, 23)
@@ -45,9 +46,10 @@ position = Vector2(23, -36)
 tile_map_data = PackedByteArray("AAAKAAoAAAAbABMAAAANAAQAAAAYABMAAAA=")
 tile_set = ExtResource("1_e2jdp")
 
-[node name="Player" parent="." instance=ExtResource("2_6iw1u")]
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_6iw1u")]
 y_sort_enabled = true
 position = Vector2(72, 53)
+hud = NodePath("../UI")
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="Player"]
 visible = false
@@ -136,3 +138,5 @@ position = Vector2(0, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mirror/StaticBody2D"]
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_hg4au")
+
+[node name="UI" parent="." instance=ExtResource("14_h8uu7")]
