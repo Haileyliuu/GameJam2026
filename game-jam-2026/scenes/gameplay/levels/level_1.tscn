@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=4 uid="uid://dhfle4mf4au1p"]
 
 [ext_resource type="Script" uid="uid://cvfrs73wgvycp" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
-[ext_resource type="TileSet" uid="uid://d04bfrrutyo0r" path="res://resources/tileset.tres" id="1_bbcek"]
+[ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_bbcek"]
 [ext_resource type="AudioStream" uid="uid://hc0cedpujooq" path="res://sounds/horror-music-box-375927.mp3" id="4_vy56g"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
+[ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
 [ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/levels/fade.tscn" id="6_rlvxr"]
+[ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_rlvxr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rlvxr"]
 
@@ -37,11 +37,12 @@ position = Vector2(212, 230)
 interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-position = Vector2(-59, -165)
+position = Vector2(32, -187)
 shape = SubResource("CircleShape2D_rlvxr")
 
 [node name="Fade" parent="." instance=ExtResource("6_rlvxr")]
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_qh535")]
+visible = false
 position = Vector2(53, 92)
