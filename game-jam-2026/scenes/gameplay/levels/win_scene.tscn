@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ne86icggaeuc"]
+
+[ext_resource type="Script" uid="uid://d0l1t80c4ltbq" path="res://scenes/gameplay/levels/button.gd" id="1_5xu3p"]
+
+[node name="WinScene" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 95.0
+offset_right = 302.0
+offset_bottom = 204.0
+text = "you  win :D"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 143.0
+offset_top = 168.0
+offset_right = 258.0
+offset_bottom = 204.0
+text = "main menu"
+script = ExtResource("1_5xu3p")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
