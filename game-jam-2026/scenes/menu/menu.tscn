@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=6 format=3 uid="uid://c2gocuhw2o7py"]
 
+[ext_resource type="PackedScene" uid="uid://dt2hleulx4ghr" path="res://scenes/menu/menu_bg.tscn" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
 [ext_resource type="Script" uid="uid://dfnwymtygg1to" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
@@ -14,14 +15,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="SubViewportContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.176471, 0.682353, 0.647059, 1)
+
+[node name="SubViewport" type="SubViewport" parent="ColorRect"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="menu_background" parent="ColorRect/SubViewport" instance=ExtResource("2_y1o0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021009207, 0.00928843, 0.005695462)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -141,5 +151,9 @@ theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 text = "Developer 3"
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

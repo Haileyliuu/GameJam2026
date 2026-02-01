@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bf7duie2p5mxm"]
+
+[ext_resource type="Script" uid="uid://bqvxjmc7j7en0" path="res://scenes/hud/item.gd" id="2_0b5ax"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a2gmp"]
+load_path = "res://.godot/imported/Placeholder_Tilemap.png-f371e71e8678499227d0a1be22be5572.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipy40"]
+atlas = SubResource("CompressedTexture2D_a2gmp")
+region = Rect2(848.847, 341.347, 16, 16)
+
+[resource]
+script = ExtResource("2_0b5ax")
+icon = SubResource("AtlasTexture_ipy40")
+name = "Mask piece 2"
+slot = 1
+metadata/_custom_type_script = "uid://bqvxjmc7j7en0"

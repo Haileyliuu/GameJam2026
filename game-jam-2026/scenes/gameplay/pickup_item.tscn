@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8au4657xeup8"]
+
+[ext_resource type="Script" uid="uid://ct1uvn0omen3y" path="res://scenes/gameplay/pickup_item.gd" id="1_dyr0f"]
+[ext_resource type="Resource" uid="uid://bpx3c7yuc5nfi" path="res://scenes/hud/item1.tres" id="2_vull4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gh441"]
+
+[node name="pickup_item" type="Area2D"]
+script = ExtResource("1_dyr0f")
+stats = ExtResource("2_vull4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gh441")
+
+[connection signal="area_entered" from="." to="." method="someone_entered"]
