@@ -1,17 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh4vh81umbnvk"]
+[gd_scene load_steps=6 format=3 uid="uid://dh4vh81umbnvk"]
 
 [ext_resource type="Script" uid="uid://d27nyj7fs726g" path="res://scenes/hud/player.gd" id="1_m2h1b"]
-[ext_resource type="PackedScene" uid="uid://brh2q1fb6pov2" path="res://scenes/hud/slot.tscn" id="2_6m8hm"]
-[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="2_lj7pf"]
-[ext_resource type="Script" uid="uid://bh0d5bdekvi21" path="res://scenes/hud/hotbar.gd" id="2_r0nrj"]
-[ext_resource type="Script" uid="uid://bqvxjmc7j7en0" path="res://scenes/hud/item.gd" id="3_r0nrj"]
+[ext_resource type="Script" uid="uid://w12g6dg07fka" path="res://scenes/hud/player_pickup_area_2d.gd" id="2_annyf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_annyf"]
 size = Vector2(20, 20)
 
-[sub_resource type="Resource" id="Resource_lj7pf"]
-script = ExtResource("3_r0nrj")
-metadata/_custom_type_script = "uid://bqvxjmc7j7en0"
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2h1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_annyf"]
+radius = 20.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_m2h1b")
@@ -19,51 +17,11 @@ script = ExtResource("1_m2h1b")
 [node name="player_char" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_annyf")
 
-[node name="animated_player" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m2h1b")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="PickupArea2D" type="Area2D" parent="."]
+script = ExtResource("2_annyf")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -107.0
-offset_top = -68.0
-offset_right = 105.5
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("2_lj7pf")
-
-[node name="hotbar" type="HBoxContainer" parent="UI/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -102.75
-offset_top = -52.0
-offset_right = 101.25
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("2_r0nrj")
-
-[node name="slot" parent="UI/NinePatchRect/hotbar" instance=ExtResource("2_6m8hm")]
-layout_mode = 2
-stats = SubResource("Resource_lj7pf")
-
-[node name="slot2" parent="UI/NinePatchRect/hotbar" instance=ExtResource("2_6m8hm")]
-layout_mode = 2
-stats = SubResource("Resource_lj7pf")
-
-[node name="slot3" parent="UI/NinePatchRect/hotbar" instance=ExtResource("2_6m8hm")]
-layout_mode = 2
-stats = SubResource("Resource_lj7pf")
-
-[node name="slot4" parent="UI/NinePatchRect/hotbar" instance=ExtResource("2_6m8hm")]
-layout_mode = 2
-stats = SubResource("Resource_lj7pf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+shape = SubResource("CircleShape2D_annyf")

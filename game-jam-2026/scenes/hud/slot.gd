@@ -1,17 +1,26 @@
-extends Button
+extends TextureButton
 
 @onready var player = get_tree().current_scene.find_child("player")
+
+signal toggled_item(active: bool)
+
+func _ready() -> void:
+	disabled = true
 
 @export var stats: Item = null:
 	set(value):
 		stats = value
-		icon = value.icon if value else null
+		$TextureRect.texture = value.icon if value else null
+		disabled = value == null
 
 var is_active := false
 
 func set_active(value: bool):
+	if disabled:
+		return
 	is_active = value
-	disabled = not value  # optional visual feedback
+	button_pressed = value
+	toggled_item.emit(value)
 
 func _input(event):
 	if not is_active:
