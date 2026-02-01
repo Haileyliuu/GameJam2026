@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwc8t"]
+radius = 12.0
 
 [node name="Final" type="Node2D"]
 texture_filter = 1
@@ -25,6 +26,11 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAJAAEAAAAEAA0AAAAJAAIAAAABAA4AAAAPAAYAAAACAA0AAAAPAAcAAAABAA4AAAAPAAgAAAABAA4AAAAPAAkAAAABAA4AAAAPAAoAAAABAA4AAAAPAAsAAAABAA4AAAAPAAwAAAAEAA8AAAANAAYAAAAEAA0AAAANAAcAAAABAA4AAAAQAAIAAAAEAA0AAAAQAAMAAAABAA4AAAAQAAQAAAABAA4AAAAQAAUAAAABAA4AAAAQAAYAAAAEAA8AAAAMAAIAAAACAA0AAAACAAIAAAABAA4AAAACAAMAAAABAA4AAAACAAQAAAABAA4AAAACAAUAAAABAA4AAAACAAEAAAACAA0AAAACAAYAAAABAA4AAAACAAcAAAACAA8AAAADAAcAAAADABAAAAAEAAcAAAAEAA0AAAAGAAcAAAACAA0AAAAHAAcAAAADABAAAAAIAAcAAAADABAAAAAJAAcAAAAEAA8AAAAKAAgAAAACAA0AAAADAAgAAAACAA0AAAADAAkAAAABAA4AAAADAAoAAAABAA4AAAADAAsAAAABAA4AAAADAAwAAAACAA8AAAAIAAgAAAAEAA0AAAAEAAwAAAADABAAAAAFAAwAAAADABAAAAAGAAwAAAADABAAAAAHAAwAAAADABAAAAALAAwAAAADABAAAAAMAAwAAAADABAAAAANAAwAAAADABAAAAAOAAwAAAADABAAAAAKAAUAAAADABAAAAALAAUAAAADABAAAAAJAAUAAAACAA0AAAAMAAYAAAACAA8AAAAMAAUAAAAEAA0AAAAJAAYAAAABAA4AAAAJAAsAAAADABAAAAAIAAsAAAACAA0AAAAIAAwAAAAEAA8AAAAKAAsAAAAEAA0AAAAKAAwAAAACAA8AAAA=")
 tile_set = ExtResource("1_e2jdp")
 
+[node name="Objects" type="TileMapLayer" parent="."]
+position = Vector2(23, -36)
+tile_map_data = PackedByteArray("AAAKAAoAAAAbABMAAAANAAQAAAAYABMAAAA=")
+tile_set = ExtResource("1_e2jdp")
+
 [node name="Player" parent="." instance=ExtResource("2_6iw1u")]
 position = Vector2(72, 53)
 
@@ -33,7 +39,25 @@ stream = ExtResource("3_nj53g")
 autoplay = true
 
 [node name="Interactable" parent="." instance=ExtResource("5_57bwq")]
-position = Vector2(231, 60)
+position = Vector2(239, 51)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 3)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_hwc8t")
+
+[node name="Interactable2" parent="." instance=ExtResource("5_57bwq")]
+position = Vector2(192, 145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2"]
+position = Vector2(0, 3)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_hwc8t")
+
+[node name="Interactable3" parent="." instance=ExtResource("5_57bwq")]
+position = Vector2(92, 183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable3"]
+position = Vector2(0, 3)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_hwc8t")
