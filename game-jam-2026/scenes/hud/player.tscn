@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh4vh81umbnvk"]
+
+[ext_resource type="Script" uid="uid://d27nyj7fs726g" path="res://scenes/hud/player.gd" id="1_m2h1b"]
+[ext_resource type="Script" uid="uid://w12g6dg07fka" path="res://scenes/hud/player_pickup_area_2d.gd" id="2_annyf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_annyf"]
+size = Vector2(20, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2h1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_annyf"]
+radius = 20.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_m2h1b")
+
+[node name="player_char" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_annyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m2h1b")
+
+[node name="PickupArea2D" type="Area2D" parent="."]
+script = ExtResource("2_annyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+shape = SubResource("CircleShape2D_annyf")
