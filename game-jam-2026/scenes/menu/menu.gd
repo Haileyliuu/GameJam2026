@@ -82,3 +82,11 @@ func _on_play_button_mouse_entered() -> void:
 
 func _on_play_button_mouse_exited() -> void:
 	_turn_light_off()
+
+
+func _on_focus_entered() -> void:
+	_turn_light_on()
+
+
+func _on_focus_exited() -> void:
+	_turn_light_off()
