@@ -2,8 +2,8 @@ extends Sprite2D
 
 signal podium_placed
 
-var placed_texture: Texture2D =  preload("res://assets/sprites/podium1_placed.png")
-@onready var interactable: Area2D = $Interactable
+var placed_texture: Texture2D =  preload("res://assets/sprites/podium3_placed.png")
+@onready var interactable: Area2D = $Interactable3
 
 var placed := false
 

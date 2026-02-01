@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=4 uid="uid://b3jg2kl8ctmux"]
+[gd_scene load_steps=14 format=4 uid="uid://b3jg2kl8ctmux"]
 
 [ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_e2jdp"]
 [ext_resource type="Script" uid="uid://b4qhy2dsl06vi" path="res://scenes/gameplay/levels/level_final.gd" id="1_l1pcm"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="2_6iw1u"]
-[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_l1pcm"]
 [ext_resource type="AudioStream" uid="uid://mg0dlbdduwi4" path="res://sounds/nostalgia-130881.mp3" id="3_nj53g"]
-[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
+[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
 [ext_resource type="Script" uid="uid://de8n7kai8exrc" path="res://scenes/gameplay/levels/podium_1.gd" id="6_77ns4"]
+[ext_resource type="Texture2D" uid="uid://bbkvnh0lj8qta" path="res://assets/sprites/podium1.png" id="6_ubknv"]
 [ext_resource type="Script" uid="uid://bcin55frs08y1" path="res://scenes/gameplay/levels/podium_2.gd" id="8_0u6bq"]
+[ext_resource type="Texture2D" uid="uid://c8lqbuww0g357" path="res://assets/sprites/podium2.png" id="8_hg4au"]
+[ext_resource type="Texture2D" uid="uid://bqlvqmepubuky" path="res://assets/sprites/podium3.png" id="10_er6ek"]
+[ext_resource type="Script" uid="uid://djkor4loljups" path="res://scenes/gameplay/levels/podium_3.gd" id="11_hg4au"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77ns4"]
+radius = 9.055386
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwc8t"]
-radius = 12.0
 
 [node name="Final" type="Node2D"]
 texture_filter = 1
@@ -29,13 +34,19 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAJAAEAAAAEAA0AAAAJAAIAAAABAA4AAAAPAAYAAAACAA0AAAAPAAcAAAABAA4AAAAPAAgAAAABAA4AAAAPAAkAAAABAA4AAAAPAAoAAAABAA4AAAAPAAsAAAABAA4AAAAPAAwAAAAEAA8AAAANAAYAAAAEAA0AAAANAAcAAAABAA4AAAAQAAIAAAAEAA0AAAAQAAMAAAABAA4AAAAQAAQAAAABAA4AAAAQAAUAAAABAA4AAAAQAAYAAAAEAA8AAAAMAAIAAAACAA0AAAACAAIAAAABAA4AAAACAAMAAAABAA4AAAACAAQAAAABAA4AAAACAAUAAAABAA4AAAACAAEAAAACAA0AAAACAAYAAAABAA4AAAACAAcAAAACAA8AAAADAAcAAAADABAAAAAEAAcAAAAEAA0AAAAGAAcAAAACAA0AAAAHAAcAAAADABAAAAAIAAcAAAADABAAAAAJAAcAAAAEAA8AAAAKAAgAAAACAA0AAAADAAgAAAACAA0AAAADAAkAAAABAA4AAAADAAoAAAABAA4AAAADAAsAAAABAA4AAAADAAwAAAACAA8AAAAIAAgAAAAEAA0AAAAEAAwAAAADABAAAAAFAAwAAAADABAAAAAGAAwAAAADABAAAAAHAAwAAAADABAAAAALAAwAAAADABAAAAAMAAwAAAADABAAAAANAAwAAAADABAAAAAOAAwAAAADABAAAAAKAAUAAAADABAAAAALAAUAAAADABAAAAAJAAUAAAACAA0AAAAMAAYAAAACAA8AAAAMAAUAAAAEAA0AAAAJAAYAAAABAA4AAAAJAAsAAAADABAAAAAIAAsAAAACAA0AAAAIAAwAAAAEAA8AAAAKAAsAAAAEAA0AAAAKAAwAAAACAA8AAAA=")
 tile_set = ExtResource("1_e2jdp")
 
+[node name="Interactable" parent="." instance=ExtResource("5_57bwq")]
+position = Vector2(97, 87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_77ns4")
+
 [node name="Objects" type="TileMapLayer" parent="."]
 position = Vector2(23, -36)
 tile_map_data = PackedByteArray("AAAKAAoAAAAbABMAAAANAAQAAAAYABMAAAA=")
 tile_set = ExtResource("1_e2jdp")
 
 [node name="Player" parent="." instance=ExtResource("2_6iw1u")]
-visible = false
 position = Vector2(72, 53)
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="Player"]
@@ -47,10 +58,9 @@ stream = ExtResource("3_nj53g")
 autoplay = true
 
 [node name="podium1" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(239, 46)
-texture = ExtResource("3_l1pcm")
-region_enabled = true
-region_rect = Rect2(337.0327, 443.05225, 29.667908, 37.73871)
+texture = ExtResource("6_ubknv")
 script = ExtResource("6_77ns4")
 
 [node name="Interactable" parent="podium1" instance=ExtResource("5_57bwq")]
@@ -61,10 +71,9 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_hwc8t")
 
 [node name="podium2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(192, 137)
-texture = ExtResource("3_l1pcm")
-region_enabled = true
-region_rect = Rect2(369.32867, 443.05225, 30.055298, 37.618256)
+texture = ExtResource("8_hg4au")
 script = ExtResource("8_0u6bq")
 
 [node name="Interactable2" parent="podium2" instance=ExtResource("5_57bwq")]
@@ -75,10 +84,10 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_hwc8t")
 
 [node name="podium3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(94, 162)
-texture = ExtResource("3_l1pcm")
-region_enabled = true
-region_rect = Rect2(400.83676, 443.12537, 30.667969, 37.635284)
+texture = ExtResource("10_er6ek")
+script = ExtResource("11_hg4au")
 
 [node name="Interactable3" parent="podium3" instance=ExtResource("5_57bwq")]
 position = Vector2(0, 10)
