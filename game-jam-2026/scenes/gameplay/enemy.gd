@@ -5,8 +5,6 @@ class_name Enemy
 var target_player : Node2D
 var popped := false
 
-
-
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 

@@ -26,8 +26,6 @@ func _physics_process(delta):
 func pickup(item: Item):
 	if hud:
 		hud.pickup_item(item)
-	GlobalState.player_has_mask[item.slot] = true
 		
 func toggle_item(item:int, active:bool):
 	prints("the player", "is" if active else "isn't", "wearing", item)
-	GlobalState.player_wears_mask[item] = active
