@@ -46,4 +46,10 @@ func physics_update(_delta: float):
 	enemy.move_and_slide()
 
 	if dir.length() > 0.0001:
-		enemy.rotation = dir.angle()
+		enemy.get_node("CollisionShape2D").rotation = dir.angle()
+		
+	if enemy.velocity.x > 1:
+		enemy.get_node("Sprite").flip_h = false
+	elif enemy.velocity.x < -1:
+		enemy.get_node("Sprite").flip_h = true
+		
