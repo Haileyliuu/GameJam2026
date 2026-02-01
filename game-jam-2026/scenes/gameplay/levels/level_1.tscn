@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://dhfle4mf4au1p"]
 
-[ext_resource type="Script" uid="uid://cvfrs73wgvycp" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
+[ext_resource type="Script" uid="uid://v4585w82bdcs" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
 [ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="1_bbcek"]
 [ext_resource type="AudioStream" uid="uid://hc0cedpujooq" path="res://sounds/horror-music-box-375927.mp3" id="4_vy56g"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
