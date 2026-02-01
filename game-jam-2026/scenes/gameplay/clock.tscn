@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhixid6pqfq80"]
+
+[ext_resource type="Script" uid="uid://b53ouibahm7go" path="res://scenes/gameplay/clock.gd" id="1_a07j5"]
+[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="2_pc3wm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a07j5"]
+radius = 2.0
+height = 16.0
+
+[node name="Clock" type="Node2D"]
+script = ExtResource("1_a07j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_pc3wm")
+region_enabled = true
+region_rect = Rect2(256, 368, 16, 32)
+
+[node name="Line2D1" type="Line2D" parent="."]
+position = Vector2(0, -18)
+points = PackedVector2Array(0, 0, 4, 0)
+width = 1.0
+default_color = Color(0.3372549, 0.3372549, 0.39215687, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(0, -18)
+points = PackedVector2Array(0, 0, 4, 0)
+width = 1.0
+default_color = Color(0.5411765, 0.5176471, 0.5176471, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a07j5")
