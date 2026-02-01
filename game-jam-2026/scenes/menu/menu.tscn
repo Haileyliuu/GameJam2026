@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2gocuhw2o7py"]
+[gd_scene load_steps=8 format=3 uid="uid://c2gocuhw2o7py"]
 
 [ext_resource type="PackedScene" uid="uid://dt2hleulx4ghr" path="res://scenes/menu/menu_bg.tscn" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://c8h7m3lx1lmx6" path="res://assets/fonts/Early GameBoy.ttf" id="3_y1o0p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
 [ext_resource type="Script" uid="uid://baky6bgu7psf2" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
 [ext_resource type="Texture2D" uid="uid://ckl5m477spcg7" path="res://assets/Deco All 5.png" id="6_r8yej"]
+[ext_resource type="AudioStream" uid="uid://dmachkteqws5d" path="res://sounds/horror-background-118577.mp3" id="7_3y2rt"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -191,6 +192,9 @@ patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3y2rt")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
