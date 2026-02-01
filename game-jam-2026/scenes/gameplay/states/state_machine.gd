@@ -40,5 +40,15 @@ func on_child_transition(state, new_state_name):
 	new_state.enter()
 	
 	curr_state = new_state
-		
+	
+func force_state(new_state_name: String) -> void:
+	var new_state = states.get(new_state_name.to_lower())
+	if !new_state:
+		return
+	if curr_state:
+		curr_state.exit()
+
+	new_state.enter()
+	curr_state = new_state
+
 	

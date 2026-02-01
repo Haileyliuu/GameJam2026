@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://djfi3e5ltuljs"]
+[gd_scene load_steps=7 format=3 uid="uid://djfi3e5ltuljs"]
 
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_qbbvd"]
 [ext_resource type="Script" uid="uid://brpms3fljjtua" path="res://scenes/gameplay/enemy.gd" id="1_ua2n5"]
 [ext_resource type="Script" uid="uid://cymop47r2xu45" path="res://scenes/gameplay/states/enemy_chase.gd" id="3_ynfh3"]
 [ext_resource type="Script" uid="uid://cdm4yirwv16a0" path="res://scenes/gameplay/states/state_machine.gd" id="5_ua2n5"]
+[ext_resource type="Script" uid="uid://cit0gmv6vqm0m" path="res://scenes/gameplay/states/enemy_patrol.gd" id="5_xw6io"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynfh3"]
-radius = 52.153618
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_ua2n5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
+scale = Vector2(0.325, 0.35)
 texture = ExtResource("1_qbbvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,10 +22,17 @@ shape = SubResource("CircleShape2D_ynfh3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_ua2n5")
-initial_state = NodePath("EnemyChase")
+initial_state = NodePath("EnemyPatrol")
 
 [node name="EnemyChase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_ynfh3")
-speed = 150
+speed = 10
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://cymop47r2xu45"
+
+[node name="EnemyPatrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_xw6io")
+enemy = NodePath("../..")
+speed = 50.0
+arrive_dist = 5.0
+metadata/_custom_type_script = "uid://cit0gmv6vqm0m"
