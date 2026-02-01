@@ -57,4 +57,5 @@ func game_over():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.BLACK, 1.0)
 	tween.tween_callback(player_died.emit)
+	get_tree().change_scene_to_file("res://scenes/gameplay/levels/jumpscare/jumpscare.tscn")
 	

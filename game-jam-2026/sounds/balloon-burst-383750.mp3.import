@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b4w7di5cvla0o"
-path="res://.godot/imported/balloon-burst-383750.mp3-73abc588a2abaeea3a08006fe08afd7e.mp3str"
+path="res://.godot/imported/balloon-burst-383750.mp3-bb2a8a609ac3bee145ef43ef9125cce5.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/balloon-burst-383750.mp3"
-dest_files=["res://.godot/imported/balloon-burst-383750.mp3-73abc588a2abaeea3a08006fe08afd7e.mp3str"]
+source_file="res://sounds/balloon-burst-383750.mp3"
+dest_files=["res://.godot/imported/balloon-burst-383750.mp3-bb2a8a609ac3bee145ef43ef9125cce5.mp3str"]
 
 [params]
 
