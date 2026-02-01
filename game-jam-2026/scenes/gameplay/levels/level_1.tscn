@@ -61,7 +61,6 @@ position = Vector2(35, -175)
 shape = SubResource("CircleShape2D_rlvxr")
 
 [node name="Fade" parent="." instance=ExtResource("6_rlvxr")]
-visible = false
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("5_qh535")]
 position = Vector2(49, 143)
@@ -81,6 +80,7 @@ region_rect = Rect2(257, 145, 13, 14)
 
 [node name="Interactable" parent="Trash" instance=ExtResource("6_3si58")]
 position = Vector2(0, -2.5)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Interactable"]
 y_sort_enabled = true
@@ -115,8 +115,21 @@ position = Vector2(194, 133)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("11_5mjif")]
 position = Vector2(71, 47)
+mask_pieces = Array[bool]([true, false, false])
 patrol_track = NodePath("../Track1")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("11_5mjif")]
 position = Vector2(71, 47)
+mask_pieces = Array[bool]([true, false, false])
 patrol_track = NodePath("../Track2")
+
+[node name="Track2" type="Node2D" parent="."]
+
+[node name="Marker2D1" type="Marker2D" parent="Track2"]
+position = Vector2(120, 95)
+
+[node name="Marker2D2" type="Marker2D" parent="Track2"]
+position = Vector2(120, 95)
+
+[node name="Marker2D3" type="Marker2D" parent="Track2"]
+position = Vector2(120, 135)

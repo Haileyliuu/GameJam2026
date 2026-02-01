@@ -3,7 +3,7 @@ class_name EnemyPatrol
 
 @export var enemy: CharacterBody2D
 @export var speed: float = 100
-@export var arrive_dist: float = 20
+@export var arrive_dist: float = 8
 
 var points: Array[Vector2] = []
 var idx := 0
@@ -46,7 +46,7 @@ func physics_update(_delta: float):
 	enemy.move_and_slide()
 
 	if dir.length() > 0.0001:
-		enemy.get_node("CollisionShape2D").rotation = dir.angle()
+		enemy.get_node("VisionCone").rotation = dir.angle()
 		
 	if enemy.velocity.x > 1:
 		enemy.get_node("Sprite").flip_h = false
