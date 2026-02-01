@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://cymop47r2xu45"
 [node name="EnemyPatrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_xw6io")
 enemy = NodePath("../..")
-speed = 50.0
+speed = 12.0
 arrive_dist = 5.0
 metadata/_custom_type_script = "uid://cit0gmv6vqm0m"
 
