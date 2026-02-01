@@ -37,6 +37,10 @@ window/stretch/aspect="keep_width"
 
 enabled=PackedStringArray("res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [gui]
 
 theme/custom="res://resources/theme/theme-main.tres"
