@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmi17qf33s02h"]
+[gd_scene load_steps=3 format=3 uid="uid://cmi17qf33s02h"]
 
 [ext_resource type="Script" uid="uid://bjyrjxithhm0v" path="res://scenes/gameplay/levels/jumpscare/jumpscare.gd" id="1_35cfr"]
+[ext_resource type="Texture2D" uid="uid://xnlprb1f45t0" path="res://assets/Screen_Gameover.png" id="2_o6m71"]
 
 [node name="Jumpscare" type="Node2D"]
 script = ExtResource("1_35cfr")
@@ -12,6 +13,10 @@ offset_right = 795.0
 offset_bottom = 488.0
 theme_override_font_sizes/font_size = 100
 text = "you lose 0_0"
+
+[node name="ScreenGameover" type="Sprite2D" parent="."]
+texture = ExtResource("2_o6m71")
+centered = false
 
 [node name="Restart" type="Button" parent="."]
 offset_left = 1104.0
