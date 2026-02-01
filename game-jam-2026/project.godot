@@ -21,6 +21,7 @@ config/icon="res://assets/sprites/icon.png"
 
 GGT="*res://addons/ggt-core/ggt.gd"
 GGT_DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
+Inventory="*res://scenes/gameplay/inventory.gd"
 
 [category]
 
@@ -40,6 +41,7 @@ enabled=PackedStringArray("res://addons/ggt-core/plugin.cfg", "res://addons/ggt-
 [global_group]
 
 Player=""
+Enemies=""
 
 [gui]
 
