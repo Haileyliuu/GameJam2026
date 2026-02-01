@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dhfle4mf4au1p"]
+[gd_scene load_steps=6 format=4 uid="uid://dhfle4mf4au1p"]
 
 [ext_resource type="TileSet" uid="uid://5uoj020sg2j6" path="res://resources/tileset.tres" id="1_bbcek"]
-[ext_resource type="Script" uid="uid://db2u8yoltn73n" path="res://scenes/gameplay/test_player.gd" id="2_bakfw"]
+[ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_bakfw"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_vy56g"]
+[ext_resource type="AudioStream" uid="uid://hc0cedpujooq" path="res://sounds/horror-music-box-375927.mp3" id="4_vy56g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qh535"]
 radius = 6.0
@@ -40,3 +41,8 @@ region_rect = Rect2(999.0367, 516.81964, 29.686829, 30.072388)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlayer"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_qh535")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vy56g")
+autoplay = true
+bus = &"Music"
