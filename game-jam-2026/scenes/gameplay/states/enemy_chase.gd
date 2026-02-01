@@ -2,7 +2,7 @@ extends State
 class_name EnemyChase
 
 
-var player
+var player : CharacterBody2D
 @export var speed := 100
 @export var enemy : CharacterBody2D
 
@@ -29,6 +29,9 @@ func physics_update(_delta: float):
 		enemy.velocity = direction.normalized() * speed
 	else:
 		enemy.velocity = Vector2.ZERO
+	
+	#if direction.length() > 50: 
+		#transition.emit(self, "idle")
 	 
 
 	enemy.move_and_slide()

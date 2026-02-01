@@ -1,27 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://rmjmyqh6jtgd"]
+[gd_scene load_steps=6 format=3 uid="uid://rmjmyqh6jtgd"]
 
-[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_swesu"]
-[ext_resource type="Script" uid="uid://135a1mmlfxj4" path="res://scenes/gameplay/player.gd" id="2_0jbl4"]
+[ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_71iny"]
 [ext_resource type="PackedScene" uid="uid://djfi3e5ltuljs" path="res://scenes/gameplay/enemy.tscn" id="3_0jbl4"]
+[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="3_f6xuh"]
+[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="4_8sic3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_71iny"]
-radius = 40.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2fdf"]
+radius = 6.0
 
 [node name="test_enemy_area" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("3_0jbl4")]
 position = Vector2(463, 565)
 
-[node name="Player" type="Sprite2D" parent="." groups=["Player"]]
-position = Vector2(100, 153)
-texture = ExtResource("1_swesu")
-script = ExtResource("2_0jbl4")
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+y_sort_enabled = true
+position = Vector2(50, 57)
+script = ExtResource("2_71iny")
 
-[node name="Area2D" type="Area2D" parent="Player"]
-position = Vector2(0, 1)
-collision_layer = 3
+[node name="InteractingComponent" parent="Player" instance=ExtResource("3_f6xuh")]
+position = Vector2(0, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-shape = SubResource("CircleShape2D_71iny")
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
 
-[connection signal="area_entered" from="Player/Area2D" to="Player" method="hit"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("4_8sic3")
+region_enabled = true
+region_rect = Rect2(999.0367, 516.81964, 29.686829, 30.072388)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_h2fdf")
