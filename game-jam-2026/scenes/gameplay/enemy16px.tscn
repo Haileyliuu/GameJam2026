@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbutn0h5xvpuq"]
+
+[ext_resource type="Script" uid="uid://brpms3fljjtua" path="res://scenes/gameplay/enemy.gd" id="1_w7idm"]
+[ext_resource type="Texture2D" uid="uid://lau5uwhk1s0l" path="res://assets/cone.png" id="2_0wv46"]
+[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="2_w7idm"]
+[ext_resource type="Script" uid="uid://csl46ks2325yn" path="res://scenes/gameplay/death_area.gd" id="3_cdn73"]
+[ext_resource type="Script" uid="uid://cdm4yirwv16a0" path="res://scenes/gameplay/states/state_machine.gd" id="4_cr8rc"]
+[ext_resource type="Script" uid="uid://cymop47r2xu45" path="res://scenes/gameplay/states/enemy_chase.gd" id="5_etw0c"]
+[ext_resource type="Script" uid="uid://cit0gmv6vqm0m" path="res://scenes/gameplay/states/enemy_patrol.gd" id="6_68im8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw6io"]
+radius = 5.0990195
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wv46"]
+atlas = ExtResource("2_w7idm")
+region = Rect2(752, 48, 16, 16)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_w7idm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xw6io")
+
+[node name="PointLight2D" type="PointLight2D" parent="CollisionShape2D"]
+position = Vector2(27, 1)
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+color = Color(1, 0, 0, 1)
+texture = ExtResource("2_0wv46")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0wv46")
+
+[node name="Cone" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(45, 6)
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0wv46")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_cdn73")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 16, -16, 20, -12, 21, -9, 22, -3, 21, 4, 20, 10, 18, 14, 15, 17)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_cr8rc")
+initial_state = NodePath("EnemyPatrol")
+
+[node name="EnemyChase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_etw0c")
+speed = 10
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://cymop47r2xu45"
+
+[node name="EnemyPatrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_68im8")
+enemy = NodePath("../..")
+speed = 12.0
+arrive_dist = 5.0
+metadata/_custom_type_script = "uid://cit0gmv6vqm0m"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://dt2hleulx4ghr"]
 
 [ext_resource type="AudioStream" uid="uid://bdnqrobfwfp5n" path="res://assets/audio/door_creak.mp3" id="1_aspbr"]
-[ext_resource type="Texture2D" uid="uid://d4kbmh0n2ebyq" path="res://scenes/menu/floor.jpg" id="2_dubcm"]
+[ext_resource type="Texture2D" uid="uid://bhs74nm7dw1hm" path="res://assets/ground.png" id="2_fx6fe"]
 [ext_resource type="Texture2D" uid="uid://b8k8fnbbecde2" path="res://assets/superepicawesomedoor.png" id="3_aspbr"]
-[ext_resource type="Texture2D" uid="uid://1w2y21njc2l7" path="res://assets/house.jpg" id="4_fx6fe"]
+[ext_resource type="Texture2D" uid="uid://cnuiha6tcfw3" path="res://assets/house.png" id="4_fx6fe"]
 
 [sub_resource type="Animation" id="Animation_o07k5"]
 length = 1.5
@@ -14,10 +14,10 @@ tracks/0/path = NodePath("camera:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.53333336, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 7, 20), Vector3(0, 7, -13.2505245)]
+"values": [Vector3(0.755, 17.322157, 26.725342), Vector3(0.755, 4.545, 15.947), Vector3(0.755, 7, -13.251)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -53,7 +53,7 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dubcm"]
-albedo_texture = ExtResource("2_dubcm")
+albedo_texture = ExtResource("2_fx6fe")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o07k5"]
 material = SubResource("StandardMaterial3D_dubcm")
@@ -62,6 +62,7 @@ size = Vector2(5, 5)
 [sub_resource type="Environment" id="Environment_dubcm"]
 background_mode = 1
 fog_mode = 1
+fog_light_energy = 0.35
 fog_density = 1.0
 fog_sky_affect = 0.406
 fog_depth_curve = 0.707106
@@ -78,39 +79,47 @@ libraries = {
 }
 
 [node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3.6904137, 0, 24.767)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_o07k5")
+
+[node name="floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -42.399666, -0.005893618, 25.202)
+mesh = SubResource("PlaneMesh_o07k5")
+
+[node name="floor3" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 48.522526, 0.14639091, 25.202156)
 mesh = SubResource("PlaneMesh_o07k5")
 
 [node name="world" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dubcm")
 
 [node name="spotlight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 32, 8.579491)
+transform = Transform3D(1, 0, 0, 0, 0.4105916, 0.91181934, 0, -0.91181934, 0.4105916, 0.78898716, 17.10006, 7.963502)
 light_energy = 0.0
-spot_range = 126.424
-spot_angle = 13.45
+spot_range = 150.076
+spot_angle = 11.48
 
 [node name="omnilight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2581, 11.956171)
-omni_range = 40.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.090542, 0)
+light_energy = 4.518
+omni_range = 76.86
 
 [node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755, 17.322157, 26.725342)
 
 [node name="door" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.742045, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.814, -0.706, 0)
 
 [node name="door_picture" type="Sprite3D" parent="door"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.889183, 6.107966, 0)
-shaded = true
+transform = Transform3D(5.4, 0, 0, 0, 5.4, 0, 0, 0, 5.4, 1.6958613, 3.735755, 0)
 texture_filter = 0
 texture = ExtResource("3_aspbr")
 
 [node name="door_creak" type="AudioStreamPlayer3D" parent="door/door_picture"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.014713812, -0.61079663, 0)
+transform = Transform3D(0.16666667, 0, 0, 0, 0.16666667, 0, 0, 0, 0.16666667, 0, -0.073382676, 0)
 stream = SubResource("AudioStreamPolyphonic_fx6fe")
 
 [node name="house" type="Sprite3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0.118314266, 18.829979, 0)
-shaded = true
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 18.155987, 0)
 texture = ExtResource("4_fx6fe")
