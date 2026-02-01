@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b3jg2kl8ctmux"]
+[gd_scene load_steps=4 format=4 uid="uid://b3jg2kl8ctmux"]
 
 [ext_resource type="TileSet" uid="uid://d04bfrrutyo0r" path="res://resources/tileset.tres" id="1_e2jdp"]
 [ext_resource type="PackedScene" uid="uid://4wei73u4dc0y" path="res://scenes/gameplay/player.tscn" id="2_6iw1u"]
+[ext_resource type="AudioStream" uid="uid://mg0dlbdduwi4" path="res://sounds/nostalgia-130881.mp3" id="3_nj53g"]
 
 [node name="Final" type="Node2D"]
 
@@ -20,3 +21,7 @@ tile_set = ExtResource("1_e2jdp")
 
 [node name="Player" parent="." instance=ExtResource("2_6iw1u")]
 position = Vector2(72, 53)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nj53g")
+autoplay = true
