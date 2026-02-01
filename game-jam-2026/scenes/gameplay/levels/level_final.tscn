@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b3jg2kl8ctmux"]
+[gd_scene load_steps=15 format=4 uid="uid://b3jg2kl8ctmux"]
 
 [ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_e2jdp"]
 [ext_resource type="Script" uid="uid://b4qhy2dsl06vi" path="res://scenes/gameplay/levels/level_final.gd" id="1_l1pcm"]
@@ -15,9 +15,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_77ns4"]
 radius = 9.055386
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg4au"]
+size = Vector2(28, 9)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwc8t"]
 
 [node name="Final" type="Node2D"]
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_l1pcm")
 
@@ -47,6 +51,7 @@ tile_map_data = PackedByteArray("AAAKAAoAAAAbABMAAAANAAQAAAAYABMAAAA=")
 tile_set = ExtResource("1_e2jdp")
 
 [node name="Player" parent="." instance=ExtResource("2_6iw1u")]
+y_sort_enabled = true
 position = Vector2(72, 53)
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="Player"]
@@ -59,12 +64,19 @@ autoplay = true
 
 [node name="podium1" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(239, 46)
+position = Vector2(239, 58)
 texture = ExtResource("6_ubknv")
+offset = Vector2(0, -12)
 script = ExtResource("6_77ns4")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="podium1"]
+position = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="podium1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hg4au")
+
 [node name="Interactable" parent="podium1" instance=ExtResource("5_57bwq")]
-position = Vector2(0, 16)
+position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium1/Interactable"]
 scale = Vector2(1.5, 1.5)
@@ -72,12 +84,19 @@ shape = SubResource("CircleShape2D_hwc8t")
 
 [node name="podium2" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(192, 137)
+position = Vector2(192, 149)
 texture = ExtResource("8_hg4au")
+offset = Vector2(0, -12)
 script = ExtResource("8_0u6bq")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="podium2"]
+position = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="podium2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hg4au")
+
 [node name="Interactable2" parent="podium2" instance=ExtResource("5_57bwq")]
-position = Vector2(-1, 13)
+position = Vector2(-1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium2/Interactable2"]
 scale = Vector2(1.5, 1.5)
@@ -85,13 +104,20 @@ shape = SubResource("CircleShape2D_hwc8t")
 
 [node name="podium3" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(94, 162)
+position = Vector2(94, 174)
 texture = ExtResource("10_er6ek")
+offset = Vector2(0, -12)
 script = ExtResource("11_hg4au")
 
 [node name="Interactable3" parent="podium3" instance=ExtResource("5_57bwq")]
-position = Vector2(0, 10)
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium3/Interactable3"]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_hwc8t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="podium3"]
+position = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="podium3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hg4au")
