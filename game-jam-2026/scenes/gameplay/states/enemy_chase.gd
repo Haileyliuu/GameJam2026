@@ -27,6 +27,10 @@ func physics_update(_delta: float):
 	
 	if direction.length() > 20:
 		enemy.velocity = direction.normalized() * speed
+		var dir := direction.normalized()
+		enemy.velocity = dir * speed
+		if dir.length() > 0.001:
+			enemy.rotation = dir.angle()
 	else:
 		enemy.velocity = Vector2.ZERO
 	
