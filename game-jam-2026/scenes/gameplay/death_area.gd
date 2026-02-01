@@ -3,4 +3,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.modulate = Color.BLACK
+		get_tree().change_scene_to_file("res://scenes/gameplay/levels/jumpscare/jumpscare.tscn")

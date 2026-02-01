@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmi17qf33s02h"]
+
+[ext_resource type="Script" uid="uid://bjyrjxithhm0v" path="res://scenes/gameplay/levels/jumpscare/jumpscare.gd" id="1_35cfr"]
+[ext_resource type="Texture2D" uid="uid://bl7xxgkyvu3t1" path="res://assets/jumpscare.png" id="2_s81re"]
+[ext_resource type="AudioStream" uid="uid://bfronb6kn6s2a" path="res://sounds/712416__zombyklr__jumpscare-1.mp3" id="3_kk21b"]
+
+[node name="Jumpscare" type="Node2D"]
+script = ExtResource("1_35cfr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_s81re")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 1153.0
+offset_top = 651.0
+offset_right = 1228.0
+offset_bottom = 687.0
+text = "Restart"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kk21b")
+autoplay = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

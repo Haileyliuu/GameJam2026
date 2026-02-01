@@ -17,7 +17,5 @@ func _on_interact() -> void:
 
 	texture = placed_texture
 
-	interactable.monitoring = false
-	interactable.monitorable = false
-
 	emit_signal("podium_placed")
+	interactable.queue_free()
