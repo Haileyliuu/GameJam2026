@@ -1,14 +1,20 @@
-extends Sprite2D
+extends CharacterBody2D
 
+const SPEED = 50
+@onready var animated_sprite = $AnimatedSprite2D
+@warning_ignore("unused_parameter")
+func _physics_process(delta):
+	var direction = Input.get_vector("left", "right", "up", "down")
+	if direction != Vector2.ZERO:
+		velocity = direction * SPEED
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+		# Flip based on horizontal direction
+		if direction.x != 0:
+			animated_sprite.flip_h = direction.x < 0
 
+		animated_sprite.play("walk_right")
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		animated_sprite.play("idle_right")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position += (get_global_mouse_position() - position).normalized() * 100 * delta
- 
-func hit(other_area):
-	modulate = Color.BLACK
+	move_and_slide()
