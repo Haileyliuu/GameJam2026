@@ -13,11 +13,9 @@ script = ExtResource("1_ua2n5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
-position = Vector2(180, 426)
 texture = ExtResource("1_qbbvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(178, 424)
 shape = SubResource("CircleShape2D_ynfh3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

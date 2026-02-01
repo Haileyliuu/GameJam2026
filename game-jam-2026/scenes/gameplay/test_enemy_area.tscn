@@ -10,7 +10,7 @@ radius = 40.0
 [node name="test_enemy_area" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("3_0jbl4")]
-position = Vector2(-2, 4)
+position = Vector2(463, 565)
 
 [node name="Player" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(100, 153)

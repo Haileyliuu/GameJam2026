@@ -21,7 +21,7 @@ func enter():
 
 func physics_update(_delta: float):
 	#if player:
-	print("physics")
+	#print("physics")
 	var direction = player.global_position - enemy.global_position
 	
 	
