@@ -1,15 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://dhfle4mf4au1p"]
+[gd_scene load_steps=8 format=4 uid="uid://dhfle4mf4au1p"]
 
-[ext_resource type="Script" uid="uid://v4585w82bdcs" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
+[ext_resource type="Script" uid="uid://cvfrs73wgvycp" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
 [ext_resource type="TileSet" uid="uid://d04bfrrutyo0r" path="res://resources/tileset.tres" id="1_bbcek"]
-[ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_bakfw"]
-[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_vy56g"]
-[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="4_rlvxr"]
 [ext_resource type="AudioStream" uid="uid://hc0cedpujooq" path="res://sounds/horror-music-box-375927.mp3" id="4_vy56g"]
-[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qh535"]
-radius = 6.0
+[ext_resource type="PackedScene" uid="uid://4wei73u4dc0y" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
+[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
+[ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_rlvxr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rlvxr"]
 
@@ -31,26 +27,6 @@ z_index = 1
 tile_map_data = PackedByteArray("AAABAAIAAAABAAkAAAABAAMAAAABAAkAAAABAAQAAAABAAkAAAABAAUAAAABAAkAAAABAAYAAAABAAkAAAABAAcAAAABAAkAAAABAAgAAAABAAkAAAABAAkAAAABAAkAAAAQAAIAAAABAAkAAAAQAAMAAAABAAkAAAAQAAQAAAABAAkAAAAQAAUAAAABAAkAAAAQAAYAAAABAAkAAAAQAAcAAAABAAkAAAAQAAgAAAABAAkAAAAQAAkAAAABAAkAAAABAAEAAAACAAgAAAAQAAEAAAAEAAgAAAABAAoAAAACAAoAAAAQAAoAAAAEAAoAAAA=")
 tile_set = ExtResource("1_bbcek")
 
-[node name="TestPlayer" type="CharacterBody2D" parent="."]
-y_sort_enabled = true
-position = Vector2(50, 57)
-script = ExtResource("2_bakfw")
-
-[node name="InteractingComponent" parent="TestPlayer" instance=ExtResource("4_rlvxr")]
-position = Vector2(0, 2)
-
-[node name="Camera2D" type="Camera2D" parent="TestPlayer"]
-zoom = Vector2(4, 4)
-
-[node name="Sprite2D" type="Sprite2D" parent="TestPlayer"]
-texture = ExtResource("3_vy56g")
-region_enabled = true
-region_rect = Rect2(999.0367, 516.81964, 29.686829, 30.072388)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlayer"]
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_qh535")
-
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vy56g")
 autoplay = true
@@ -62,3 +38,8 @@ interact_name = "e"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(-59, -165)
 shape = SubResource("CircleShape2D_rlvxr")
+
+[node name="Fade" parent="." instance=ExtResource("6_rlvxr")]
+
+[node name="Player" parent="." instance=ExtResource("5_qh535")]
+position = Vector2(53, 92)
