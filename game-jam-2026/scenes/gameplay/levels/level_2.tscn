@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://btxis34q73br4"]
+[gd_scene load_steps=10 format=4 uid="uid://btxis34q73br4"]
 
-[ext_resource type="Script" uid="uid://dbgv1srpmpbql" path="res://scenes/gameplay/levels/level_2.gd" id="1_4swv1"]
+[ext_resource type="Script" uid="uid://bdvqld6jgt1vc" path="res://scenes/gameplay/levels/level_2.gd" id="1_4swv1"]
 [ext_resource type="TileSet" uid="uid://d04bfrrutyo0r" path="res://resources/tileset.tres" id="1_gkk1m"]
 [ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_2jj6v"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_1putk"]
-[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="4_1putk"]
+[ext_resource type="AudioStream" uid="uid://bjs5ibmwmc4de" path="res://sounds/funhouse-collapse-385639.mp3" id="4_2jj6v"]
+[ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="4_jnata"]
 [ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4swv1"]
 radius = 4.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1putk"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnata"]
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -32,8 +33,11 @@ tile_set = ExtResource("1_gkk1m")
 
 [node name="TestPlayer" type="CharacterBody2D" parent="."]
 y_sort_enabled = true
-position = Vector2(128, 268)
+position = Vector2(163, 250)
 script = ExtResource("2_2jj6v")
+
+[node name="InteractingComponent" parent="TestPlayer" instance=ExtResource("4_jnata")]
+position = Vector2(0, -5)
 
 [node name="Camera2D" type="Camera2D" parent="TestPlayer"]
 zoom = Vector2(4, 4)
@@ -48,12 +52,12 @@ region_rect = Rect2(999.0367, 516.81964, 29.686829, 30.072388)
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_4swv1")
 
-[node name="InteractingComponent" parent="TestPlayer" instance=ExtResource("4_1putk")]
-position = Vector2(-1, -4)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2jj6v")
+autoplay = true
 
 [node name="Interactable" parent="." instance=ExtResource("5_4swv1")]
-position = Vector2(371, 91)
+position = Vector2(212, 230)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_1putk")
+shape = SubResource("CircleShape2D_jnata")
