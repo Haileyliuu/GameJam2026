@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://2g0ojrgq1pg7"]
+
+[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="1_04hli"]
+[ext_resource type="Script" uid="uid://brmcs0v2cga2x" path="res://scenes/gameplay/dog.gd" id="2_vx02n"]
+[ext_resource type="AudioStream" uid="uid://b4w7di5cvla0o" path="res://assets/audio/balloon-burst-383750.mp3" id="3_vx02n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aisrb"]
+radius = 13.152946
+
+[node name="Dog" type="Sprite2D"]
+texture = ExtResource("1_04hli")
+region_enabled = true
+region_rect = Rect2(262, 329, 20, 17)
+script = ExtResource("2_vx02n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aisrb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vx02n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
