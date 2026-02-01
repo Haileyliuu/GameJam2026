@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="2_1putk"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="3_1putk"]
 [ext_resource type="AudioStream" uid="uid://bjs5ibmwmc4de" path="res://sounds/funhouse-collapse-385639.mp3" id="4_2jj6v"]
-[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
+[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_4swv1"]
 [ext_resource type="Script" uid="uid://507mfy03a2xq" path="res://scenes/gameplay/levels/chest.gd" id="8_bnmh0"]
 [ext_resource type="Resource" uid="uid://bf7duie2p5mxm" path="res://scenes/hud/item2.tres" id="8_xyo5e"]
@@ -53,13 +53,13 @@ autoplay = true
 
 [node name="Interactable" parent="." instance=ExtResource("5_4swv1")]
 position = Vector2(212, 230)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(164, -127)
 shape = SubResource("CircleShape2D_jnata")
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("2_1putk")]
-visible = false
 position = Vector2(128, 263)
 hud = NodePath("../UI")
 
@@ -80,6 +80,7 @@ region_rect = Rect2(305, 292, 14, 11)
 
 [node name="Interactable" parent="Chest" instance=ExtResource("5_4swv1")]
 position = Vector2(0, -2.5)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/Interactable"]
 y_sort_enabled = true

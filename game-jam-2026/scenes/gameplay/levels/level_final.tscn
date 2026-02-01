@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bcin55frs08y1" path="res://scenes/gameplay/levels/podium_2.gd" id="8_0u6bq"]
 [ext_resource type="Texture2D" uid="uid://c8lqbuww0g357" path="res://assets/sprites/podium2.png" id="8_hg4au"]
 [ext_resource type="Texture2D" uid="uid://bqlvqmepubuky" path="res://assets/sprites/podium3.png" id="10_er6ek"]
-[ext_resource type="Script" path="res://scenes/gameplay/levels/podium_3.gd" id="11_hg4au"]
+[ext_resource type="Script" uid="uid://djkor4loljups" path="res://scenes/gameplay/levels/podium_3.gd" id="11_hg4au"]
 [ext_resource type="Texture2D" uid="uid://b4qhauqrtxs4k" path="res://assets/mirror.png" id="12_er6ek"]
 [ext_resource type="Script" uid="uid://bujwly4akerht" path="res://scenes/gameplay/levels/mirror.gd" id="13_1h18w"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="14_h8uu7"]
@@ -73,6 +73,7 @@ shape = SubResource("RectangleShape2D_hg4au")
 
 [node name="Interactable" parent="podium1" instance=ExtResource("5_57bwq")]
 position = Vector2(0, 4)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium1/Interactable"]
 scale = Vector2(1.5, 1.5)
@@ -93,6 +94,7 @@ shape = SubResource("RectangleShape2D_hg4au")
 
 [node name="Interactable2" parent="podium2" instance=ExtResource("5_57bwq")]
 position = Vector2(-1, 1)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium2/Interactable2"]
 scale = Vector2(1.5, 1.5)
@@ -107,6 +109,7 @@ script = ExtResource("11_hg4au")
 
 [node name="Interactable3" parent="podium3" instance=ExtResource("5_57bwq")]
 position = Vector2(0, -2)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium3/Interactable3"]
 scale = Vector2(1.5, 1.5)
@@ -129,6 +132,7 @@ visible = false
 
 [node name="Interactable" parent="mirror" instance=ExtResource("5_57bwq")]
 position = Vector2(-1, 18)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mirror/Interactable"]
 position = Vector2(1, 0)
