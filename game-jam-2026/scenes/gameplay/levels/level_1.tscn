@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dhfle4mf4au1p"]
+[gd_scene load_steps=12 format=4 uid="uid://dhfle4mf4au1p"]
 
 [ext_resource type="Script" uid="uid://cvfrs73wgvycp" path="res://scenes/gameplay/levels/level_1.gd" id="1_3si58"]
 [ext_resource type="TileSet" uid="uid://daf1jdua8bnie" path="res://resources/tileset.tres" id="1_bbcek"]
@@ -6,8 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="5_qh535"]
 [ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="6_3si58"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_rlvxr"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/chest.gd" id="7_77int"]
+[ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="8_74tmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rlvxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apf2o"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mjif"]
+size = Vector2(8, 5)
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -30,7 +38,7 @@ tile_set = ExtResource("1_bbcek")
 
 [node name="Objects" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAKAAIAAAAVAAgAAAAKAAUAAAAYAAcAAAAOAAcAAAAYAAcAAAAPAAkAAAAOAAkAAAAFAAQAAAAOAAkAAAAFAAUAAAARAAgAAAAFAAcAAAAVAAgAAAAFAAgAAAAOAAkAAAAFAAkAAAARAAgAAAAGAAgAAAAQAAkAAAALAAQAAAAVAAgAAAAEAAkAAAAQAAkAAAAGAAkAAAAYAAcAAAAEAAUAAAAVAAgAAAAFAAYAAAAOAAkAAAAKAAMAAAAOAAkAAAAEAAgAAAASAAgAAAALAAMAAAATAAgAAAAEAAQAAAATAAgAAAA=")
+tile_map_data = PackedByteArray("AAAKAAIAAAAVAAgAAAAKAAUAAAAYAAcAAAAOAAcAAAAYAAcAAAAPAAkAAAAOAAkAAAAFAAQAAAAOAAkAAAAFAAUAAAARAAgAAAAFAAcAAAAVAAgAAAAFAAgAAAAOAAkAAAAFAAkAAAARAAgAAAAGAAgAAAAQAAkAAAALAAQAAAAVAAgAAAAGAAkAAAAYAAcAAAAEAAUAAAAVAAgAAAAFAAYAAAAOAAkAAAAKAAMAAAAOAAkAAAAEAAgAAAASAAgAAAALAAMAAAATAAgAAAAEAAQAAAATAAgAAAA=")
 tile_set = ExtResource("1_bbcek")
 
 [node name="floorObjects" type="TileMapLayer" parent="Objects"]
@@ -54,3 +62,23 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("5_qh535")]
 position = Vector2(49, 143)
+
+[node name="Trash" type="StaticBody2D" parent="."]
+position = Vector2(71, 154)
+script = ExtResource("7_77int")
+
+[node name="Sprite" type="Sprite2D" parent="Trash"]
+position = Vector2(0, -2.5)
+texture = ExtResource("8_74tmx")
+region_enabled = true
+region_rect = Rect2(257, 145, 13, 14)
+
+[node name="Interactable" parent="Trash" instance=ExtResource("6_3si58")]
+position = Vector2(0, -2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Interactable"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_apf2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash"]
+shape = SubResource("RectangleShape2D_5mjif")

@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bjs5ibmwmc4de" path="res://sounds/funhouse-collapse-385639.mp3" id="4_2jj6v"]
 [ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_4swv1"]
 [ext_resource type="PackedScene" uid="uid://dfbgokijmmmn6" path="res://scenes/gameplay/levels/fade.tscn" id="6_4swv1"]
-[ext_resource type="Script" uid="uid://507mfy03a2xq" path="res://scenes/gameplay/levels/chest.gd" id="8_bnmh0"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/chest.gd" id="8_bnmh0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnata"]
 
@@ -55,8 +55,7 @@ position = Vector2(160, -139)
 shape = SubResource("CircleShape2D_jnata")
 
 [node name="Player" parent="." instance=ExtResource("2_1putk")]
-visible = false
-position = Vector2(163, 229)
+position = Vector2(128, 263)
 
 [node name="Fade" parent="." instance=ExtResource("6_4swv1")]
 visible = false
