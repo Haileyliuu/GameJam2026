@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dt5w04p1r2277" path="res://scenes/hud/ui.tscn" id="3_2p25t"]
 [ext_resource type="PackedScene" uid="uid://dh4vh81umbnvk" path="res://scenes/hud/player.tscn" id="4_q64rj"]
 [ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://scenes/gameplay/gameplay.gd" id="5"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/pickup_item.tscn" id="5_gh441"]
+[ext_resource type="PackedScene" uid="uid://c8au4657xeup8" path="res://scenes/gameplay/pickup_item.tscn" id="5_gh441"]
 [ext_resource type="Resource" uid="uid://bf7duie2p5mxm" path="res://scenes/hud/item2.tres" id="6_pa1on"]
 [ext_resource type="Resource" uid="uid://dbnbq01u5hxi2" path="res://scenes/hud/item3.tres" id="7_elju3"]
 
