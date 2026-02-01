@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name EnemyPatrol
 
 @export var all_markers: Array[Node2D] = []
 @export var speed: float = 200

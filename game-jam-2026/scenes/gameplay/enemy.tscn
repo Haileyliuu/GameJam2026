@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://djfi3e5ltuljs"]
+
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_qbbvd"]
+[ext_resource type="Script" uid="uid://brpms3fljjtua" path="res://scenes/gameplay/enemy.gd" id="1_ua2n5"]
+[ext_resource type="Script" uid="uid://cymop47r2xu45" path="res://scenes/gameplay/states/enemy_chase.gd" id="3_ynfh3"]
+[ext_resource type="Script" uid="uid://cdm4yirwv16a0" path="res://scenes/gameplay/states/state_machine.gd" id="5_ua2n5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynfh3"]
+radius = 52.153618
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ua2n5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.6436548, 0.088915356, 0.12678471, 1)
+position = Vector2(180, 426)
+texture = ExtResource("1_qbbvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(178, 424)
+shape = SubResource("CircleShape2D_ynfh3")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_ua2n5")
+initial_state = NodePath("EnemyChase")
+
+[node name="EnemyChase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_ynfh3")
+speed = 150
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://cymop47r2xu45"
+
+[node name="Track" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Track"]
+position = Vector2(838, 580)
+
+[node name="Marker2D2" type="Marker2D" parent="Track"]
+position = Vector2(832, 269)
+
+[node name="Marker2D3" type="Marker2D" parent="Track"]
+position = Vector2(1150, 260)
+
+[node name="Marker2D4" type="Marker2D" parent="Track"]
+position = Vector2(1154, 585)
+
+[node name="Track2" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Track2"]
+position = Vector2(386, 154)
+
+[node name="Marker2D2" type="Marker2D" parent="Track2"]
+position = Vector2(916, 154)
+
+[node name="Marker2D3" type="Marker2D" parent="Track2"]
+position = Vector2(386, 154)
