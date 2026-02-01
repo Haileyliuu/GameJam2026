@@ -4,11 +4,11 @@
 
 <p>
   <a href="https://godotengine.org/download">
-    <img alt="Godot Download badge" src="https://img.shields.io/badge/godot-4.5-blue">
+	<img alt="Godot Download badge" src="https://img.shields.io/badge/godot-4.5-blue">
   </a>
 
   <a href="https://github.com/crystal-bit/godot-game-template/releases">
-    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/crystal-bit/godot-game-template">
+	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/crystal-bit/godot-game-template">
   </a>
 </p>
 
@@ -112,9 +112,9 @@ Nodes in the loaded scene can read params with:
 # gameplay.gd
 
 func _ready():
-    var params = GGT.get_current_scene_data().params
-    print(params.level) # 4
-    print(params.skin)  # 'dark'
+	var params = GGT.get_current_scene_data().params
+	print(params.level) # 4
+	print(params.skin)  # 'dark'
    # setup your scene here
 ```
 
@@ -128,10 +128,10 @@ can use this approach:
 # gameplay.gd
 
 func _ready() -> void:
-    if GGT.is_changing_scene(): # this will be false for the starting scene or if you start the scene with "Run current scene" or F6 shortcut during development
-        await GGT.scene_transition_finished
-    # activate your game logic here
-    pass
+	if GGT.is_changing_scene(): # this will be false for the starting scene or if you start the scene with "Run current scene" or F6 shortcut during development
+		await GGT.scene_transition_finished
+	# activate your game logic here
+	pass
 ```
 
 ## Restart the current scene
@@ -223,19 +223,19 @@ Look inside the ./builds/ directory:
 ```sh
 builds
 └── ProjectName
-    ├── html5
-    │   ├── build.log # an export log + build datetime and git hash
-    │   ├── index.html
-    │   ├── ...
-    ├── linux
-    │   ├── ProjectName.x86_64
-    │   └── build.log
-    ├── osx
-    │   ├── ProjectName.dmg
-    │   └── build.log
-    └── windows
-        ├── ProjectName.exe
-        └── build.log
+	├── html5
+	│   ├── build.log # an export log + build datetime and git hash
+	│   ├── index.html
+	│   ├── ...
+	├── linux
+	│   ├── ProjectName.x86_64
+	│   └── build.log
+	├── osx
+	│   ├── ProjectName.dmg
+	│   └── build.log
+	└── windows
+		├── ProjectName.exe
+		└── build.log
 ```
 
 ## Github Actions
