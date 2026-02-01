@@ -9,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwc8t"]
 
 [node name="Final" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_l1pcm")
 
 [node name="Floor" type="TileMapLayer" parent="."]
