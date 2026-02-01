@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://djfi3e5ltuljs"]
+[gd_scene load_steps=8 format=3 uid="uid://djfi3e5ltuljs"]
 
 [ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_qbbvd"]
 [ext_resource type="Script" uid="uid://brpms3fljjtua" path="res://scenes/gameplay/enemy.gd" id="1_ua2n5"]
+[ext_resource type="Script" uid="uid://csl46ks2325yn" path="res://scenes/gameplay/death_area.gd" id="3_ykhjb"]
 [ext_resource type="Script" uid="uid://cymop47r2xu45" path="res://scenes/gameplay/states/enemy_chase.gd" id="3_ynfh3"]
 [ext_resource type="Script" uid="uid://cdm4yirwv16a0" path="res://scenes/gameplay/states/state_machine.gd" id="5_ua2n5"]
 [ext_resource type="Script" uid="uid://cit0gmv6vqm0m" path="res://scenes/gameplay/states/enemy_patrol.gd" id="5_xw6io"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ynfh3"]
-radius = 11.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw6io"]
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_ua2n5")
@@ -18,7 +18,13 @@ scale = Vector2(0.325, 0.35)
 texture = ExtResource("1_qbbvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ynfh3")
+shape = SubResource("CircleShape2D_xw6io")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_ykhjb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 16, -16, 20, -12, 21, -9, 22, -3, 21, 4, 20, 10, 18, 14, 15, 17)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_ua2n5")
@@ -36,3 +42,5 @@ enemy = NodePath("../..")
 speed = 50.0
 arrive_dist = 5.0
 metadata/_custom_type_script = "uid://cit0gmv6vqm0m"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
