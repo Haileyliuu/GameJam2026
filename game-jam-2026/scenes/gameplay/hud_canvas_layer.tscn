@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://fhv5p5qp68vx"]
+
+[ext_resource type="Texture2D" uid="uid://31qbupqrru4q" path="res://assets/Placeholder_Tilemap.png" id="1_dbnrv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsxl"]
+atlas = ExtResource("1_dbnrv")
+region = Rect2(832, 340, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_2r8yh"]
+offsets = PackedFloat32Array(0.39855072, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c41f7"]
+gradient = SubResource("Gradient_2r8yh")
+fill = 1
+fill_from = Vector2(0.5049505, 0.48514852)
+fill_to = Vector2(1, 0.18811882)
+
+[sub_resource type="Gradient" id="Gradient_vviw0"]
+offsets = PackedFloat32Array(0.39855072, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6vu7e"]
+gradient = SubResource("Gradient_vviw0")
+fill = 1
+fill_from = Vector2(0.5049505, 0.48514852)
+fill_to = Vector2(1, 0.18811882)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a2gmp"]
+load_path = "res://.godot/imported/Placeholder_Tilemap.png-f371e71e8678499227d0a1be22be5572.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipy40"]
+atlas = SubResource("CompressedTexture2D_a2gmp")
+region = Rect2(848.847, 341.347, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2brp2"]
+load_path = "res://.godot/imported/Placeholder_Tilemap.png-f371e71e8678499227d0a1be22be5572.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxnxt"]
+atlas = SubResource("CompressedTexture2D_2brp2")
+region = Rect2(942, 338, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_dbnrv"]
+offsets = PackedFloat32Array(0.39855072, 1)
+colors = PackedColorArray(0.42745098, 0.42745098, 0.42745098, 0.7411765, 0.29219002, 0.29219005, 0.29219002, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_frsxl"]
+gradient = SubResource("Gradient_dbnrv")
+fill = 1
+fill_from = Vector2(0.5049505, 0.48514852)
+fill_to = Vector2(1, 0.18811882)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -38.0
+offset_top = 525.0
+offset_right = 1302.0
+offset_bottom = 740.0
+color = Color(0.63529414, 0.2627451, 0.34509805, 0.5568628)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="TextureRect1" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_frsxl")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/TextureRect1"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_c41f7")
+texture_pressed = SubResource("GradientTexture2D_6vu7e")
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ipy40")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/TextureRect2"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_c41f7")
+texture_pressed = SubResource("GradientTexture2D_6vu7e")
+stretch_mode = 0
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_uxnxt")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/TextureRect3"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_c41f7")
+texture_pressed = SubResource("GradientTexture2D_6vu7e")
+stretch_mode = 0
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/TextureRect4"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_c41f7")
+texture_pressed = SubResource("GradientTexture2D_6vu7e")
+texture_disabled = SubResource("GradientTexture2D_frsxl")
+stretch_mode = 0
