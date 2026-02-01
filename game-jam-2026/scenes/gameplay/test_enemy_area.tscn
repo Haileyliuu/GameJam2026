@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=4 uid="uid://rmjmyqh6jtgd"]
+[gd_scene load_steps=10 format=4 uid="uid://rmjmyqh6jtgd"]
 
-[ext_resource type="Script" uid="uid://db2u8yoltn73n" path="res://scenes/gameplay/test_player.gd" id="2_71iny"]
+[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1_swesu"]
+[ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_71iny"]
 [ext_resource type="PackedScene" uid="uid://djfi3e5ltuljs" path="res://scenes/gameplay/enemy.tscn" id="3_0jbl4"]
 [ext_resource type="PackedScene" uid="uid://dihywvwvshtys" path="res://scenes/interaction/interacting_component.tscn" id="3_f6xuh"]
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="4_8sic3"]
 [ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="5_f6xuh"]
-[ext_resource type="PackedScene" uid="uid://bvnm0x5i4jfve" path="res://scenes/gameplay/balloondog.tscn" id="6_8sic3"]
+[ext_resource type="Script" uid="uid://brmcs0v2cga2x" path="res://scenes/gameplay/dog.gd" id="7_h2fdf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2fdf"]
 radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aisrb"]
+radius = 76.52173
 
 [node name="test_enemy_area" type="Node2D"]
 
@@ -77,5 +81,15 @@ position = Vector2(125, 77)
 tile_map_data = PackedByteArray("AAADAAEAAAAOAA0AAAACAAEAAAAOAA0AAAABAAIAAAAOAA0AAAABAAMAAAAOAA0AAAAAAAMAAAAOAA0AAAAAAAQAAAAOAA0AAAAAAAUAAAAOAA0AAAAAAAYAAAAOAA0AAAABAAYAAAAOAA0AAAABAAcAAAAOAA0AAAACAAgAAAAOAA0AAAADAAgAAAAOAA0AAAAEAAgAAAAOAA0AAAAFAAgAAAAOAA0AAAAGAAgAAAAOAA0AAAAHAAgAAAAOAA0AAAAIAAcAAAAOAA0AAAAIAAYAAAAOAA0AAAAJAAYAAAAOAA0AAAAJAAUAAAAOAA0AAAAJAAQAAAAOAA0AAAAIAAMAAAAOAA0AAAAHAAIAAAAOAA0AAAAGAAIAAAAOAA0AAAAGAAMAAAAOAA0AAAAFAAMAAAAOAA0AAAAEAAQAAAAOAA0AAAAEAAUAAAAOAA0AAAAFAAUAAAAOAA0AAAAGAAUAAAAOAA0AAAAKAAQAAAAOAA0AAAALAAQAAAAOAA0AAAAMAAQAAAAOAA0AAAANAAQAAAAOAA0AAAAIAAgAAAAOAA0AAAAIAAkAAAAOAA0AAAAIAAoAAAAOAA0AAAAJAAoAAAAOAA0AAAAJAAsAAAAOAA0AAAAKAAwAAAAOAA0AAAACAAkAAAAOAA0AAAABAAkAAAAOAA0AAAABAAoAAAAOAA0AAAAAAAoAAAAOAA0AAAADAAAAAAAOAA0AAAAEAAAAAAAOAA0AAAAEAP//AAAOAA0AAAAFAP//AAAOAA0AAAAFAP7/AAAOAA0AAAAGAP7/AAAOAA0AAAD//wQAAAAOAA0AAAD//wMAAAAOAA0AAAD+/wMAAAAOAA0AAAD9/wIAAAAOAA0AAAD8/wEAAAAOAA0AAAA=")
 tile_set = ExtResource("5_f6xuh")
 
-[node name="Dog" parent="." instance=ExtResource("6_8sic3")]
+[node name="Dog" type="Sprite2D" parent="."]
 position = Vector2(73, 41)
+scale = Vector2(0.14374998, 0.14374998)
+texture = ExtResource("1_swesu")
+script = ExtResource("7_h2fdf")
+
+[node name="Area2D" type="Area2D" parent="Dog"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dog/Area2D"]
+shape = SubResource("CircleShape2D_aisrb")
+
+[connection signal="body_entered" from="Dog/Area2D" to="Dog" method="_on_area_2d_body_entered"]
