@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh3hcgwy1nchk"]
+[gd_scene load_steps=3 format=3 uid="uid://dh3hcgwy1nchk"]
 
+[ext_resource type="Script" uid="uid://x4wof71djaex" path="res://scenes/menu/credits_screen.gd" id="1_no5qy"]
 [ext_resource type="FontFile" uid="uid://c8h7m3lx1lmx6" path="res://assets/fonts/Early GameBoy.ttf" id="1_sr8sd"]
 
 [node name="CreditsScreen" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_no5qy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -168,3 +170,16 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_sr8sd")
 theme_override_font_sizes/font_size = 50
 text = "Artist"
+
+[node name="CreditsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 617.0
+offset_right = 1238.0
+offset_bottom = 687.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_previous = NodePath("../PlayButton")
+text = "Go back"
+
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

@@ -90,3 +90,7 @@ func _on_focus_entered() -> void:
 
 func _on_focus_exited() -> void:
 	_turn_light_off()
+
+
+func _on_credits_button_pressed() -> void:
+	GGT.change_scene("res://scenes/menu/credits_screen.tscn")
