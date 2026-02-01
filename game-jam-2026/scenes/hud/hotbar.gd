@@ -20,6 +20,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("equip_item1"):
+		prints("event", event)
 		current_index = 0
 	elif event.is_action_pressed("equip_item2"):
 		current_index = 1
@@ -30,6 +31,7 @@ func _input(event):
 
 
 func _toggle_slot(index: int):
+	prints("pressed", index)
 	var slot := slots[index] as TextureButton
 	slot.grab_focus()
 	slot.set_active(not slot.button_pressed)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2gocuhw2o7py"]
 
-[ext_resource type="PackedScene" uid="uid://c45igbpwwjj8u" path="res://scenes/menu/node_3d.tscn" id="2_y1o0p"]
+[ext_resource type="PackedScene" uid="uid://dt2hleulx4ghr" path="res://scenes/menu/menu_bg.tscn" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="4"]
 [ext_resource type="Script" uid="uid://dfnwymtygg1to" path="res://scenes/menu/game_version.gd" id="4_3hod2"]
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
@@ -31,7 +31,6 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="menu_background" parent="ColorRect/SubViewport" instance=ExtResource("2_y1o0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021009207, 0.00928843, 0.005695462)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

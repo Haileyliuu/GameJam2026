@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://dvb3gc51a4c6i"]
 
 [ext_resource type="Texture2D" uid="uid://cgj1hge5ee86k" path="res://assets/Placeholder_Tilemap.png" id="1_ofa73"]
-[ext_resource type="Script" uid="uid://db2u8yoltn73n" path="res://scenes/gameplay/test_player.gd" id="2_8gsq3"]
-[ext_resource type="PackedScene" uid="uid://bsxbpxka28n44" path="res://scenes/gameplay/hud_canvas_layer.tscn" id="3_bu673"]
+[ext_resource type="Script" path="res://scenes/gameplay/test_player.gd" id="2_8gsq3"]
+[ext_resource type="PackedScene" uid="uid://fhv5p5qp68vx" path="res://scenes/gameplay/hud_canvas_layer.tscn" id="3_bu673"]
 [ext_resource type="PackedScene" uid="uid://dhixid6pqfq80" path="res://scenes/gameplay/clock.tscn" id="4_3hf3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2xqm"]

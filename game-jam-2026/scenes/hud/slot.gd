@@ -22,12 +22,6 @@ func set_active(value: bool):
 	button_pressed = value
 	toggled_item.emit(value)
 
-func _input(event):
-	if not is_active:
-		return
-
-	if event.is_action_pressed("use"):
-		use_item()
 
 func use_item():
 	if stats == null:

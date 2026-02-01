@@ -1,4 +1,7 @@
+class_name Player
 extends CharacterBody2D
+
+@export var hud: HotbarContainer
 
 const SPEED = 50
 @onready var animated_sprite = $AnimatedSprite2D
@@ -18,3 +21,11 @@ func _physics_process(delta):
 		animated_sprite.play("idle_right")
 
 	move_and_slide()
+
+	
+func pickup(item: Item):
+	if hud:
+		hud.pickup_item(item)
+		
+func toggle_item(item:int, active:bool):
+	prints("the player", "is" if active else "isn't", "wearing", item)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dt2hleulx4ghr"]
 
 [ext_resource type="AudioStream" uid="uid://bdnqrobfwfp5n" path="res://assets/audio/door_creak.mp3" id="1_aspbr"]
-[ext_resource type="Texture2D" uid="uid://d4kbmh0n2ebyq" path="res://assets/floor.jpg" id="2_dubcm"]
+[ext_resource type="Texture2D" uid="uid://d4kbmh0n2ebyq" path="res://scenes/menu/floor.jpg" id="2_dubcm"]
 [ext_resource type="Texture2D" uid="uid://b8k8fnbbecde2" path="res://assets/superepicawesomedoor.png" id="3_aspbr"]
 [ext_resource type="Texture2D" uid="uid://1w2y21njc2l7" path="res://assets/house.jpg" id="4_fx6fe"]
 
@@ -91,8 +91,8 @@ spot_range = 126.424
 spot_angle = 13.45
 
 [node name="omnilight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2581, 0)
-omni_range = 34.728
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2581, 11.956171)
+omni_range = 40.0
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 20)
@@ -102,6 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.742045, 0, 0)
 
 [node name="door_picture" type="Sprite3D" parent="door"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.889183, 6.107966, 0)
+shaded = true
 texture_filter = 0
 texture = ExtResource("3_aspbr")
 
@@ -111,4 +112,5 @@ stream = SubResource("AudioStreamPolyphonic_fx6fe")
 
 [node name="house" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0.118314266, 18.829979, 0)
+shaded = true
 texture = ExtResource("4_fx6fe")
