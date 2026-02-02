@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b4qhy2dsl06vi" path="res://scenes/gameplay/levels/level_final.gd" id="1_l1pcm"]
 [ext_resource type="PackedScene" uid="uid://e72fmsf5yb5d" path="res://scenes/gameplay/player.tscn" id="2_6iw1u"]
 [ext_resource type="AudioStream" uid="uid://mg0dlbdduwi4" path="res://sounds/nostalgia-130881.mp3" id="3_nj53g"]
-[ext_resource type="PackedScene" uid="uid://cvqdfjofxjey2" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
+[ext_resource type="PackedScene" path="res://scenes/interaction/interactable.tscn" id="5_57bwq"]
 [ext_resource type="Script" uid="uid://de8n7kai8exrc" path="res://scenes/gameplay/levels/podium_1.gd" id="6_77ns4"]
 [ext_resource type="Texture2D" uid="uid://bbkvnh0lj8qta" path="res://assets/sprites/podium1.png" id="6_ubknv"]
 [ext_resource type="Script" uid="uid://bcin55frs08y1" path="res://scenes/gameplay/levels/podium_2.gd" id="8_0u6bq"]
@@ -74,6 +74,7 @@ shape = SubResource("RectangleShape2D_hg4au")
 
 [node name="Interactable" parent="podium1" instance=ExtResource("5_57bwq")]
 position = Vector2(0, 4)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium1/Interactable"]
 scale = Vector2(1.5, 1.5)
@@ -94,6 +95,7 @@ shape = SubResource("RectangleShape2D_hg4au")
 
 [node name="Interactable2" parent="podium2" instance=ExtResource("5_57bwq")]
 position = Vector2(-1, 1)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium2/Interactable2"]
 scale = Vector2(1.5, 1.5)
@@ -108,6 +110,7 @@ script = ExtResource("11_hg4au")
 
 [node name="Interactable3" parent="podium3" instance=ExtResource("5_57bwq")]
 position = Vector2(0, -2)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="podium3/Interactable3"]
 scale = Vector2(1.5, 1.5)
@@ -130,6 +133,7 @@ visible = false
 
 [node name="Interactable" parent="mirror" instance=ExtResource("5_57bwq")]
 position = Vector2(-1, 18)
+interact_name = "e"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mirror/Interactable"]
 position = Vector2(1, 0)
