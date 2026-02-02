@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://btxis34q73br4"]
+[gd_scene load_steps=17 format=4 uid="uid://btxis34q73br4"]
 
 [ext_resource type="Script" uid="uid://bdvqld6jgt1vc" path="res://scenes/gameplay/levels/level_2.gd" id="1_4swv1"]
 [ext_resource type="TileSet" uid="uid://rqme2sxqu3ko" path="res://resources/tileset.tres" id="1_gkk1m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bf7duie2p5mxm" path="res://scenes/hud/item2.tres" id="8_xyo5e"]
 [ext_resource type="PackedScene" uid="uid://dt5w04p1r2277" path="res://scenes/hud/ui.tscn" id="9_7ef0k"]
 [ext_resource type="PackedScene" uid="uid://ddc7s1rkn0agr" path="res://scenes/gameplay/enemy16px.tscn" id="11_aeamo"]
+[ext_resource type="PackedScene" uid="uid://jstiavjeiww4" path="res://scenes/gameplay/enemy_clown.tscn" id="13_daicy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jnata"]
 
@@ -145,19 +146,15 @@ position = Vector2(300, 163)
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_track") groups=["Enemies"] instance=ExtResource("11_aeamo")]
 position = Vector2(92, 167)
 patrol_track = NodePath("../Track1")
-mask_pieces = Array[bool]([false, true, false])
-
-[node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_track") groups=["Enemies"] instance=ExtResource("11_aeamo")]
-position = Vector2(92, 167)
-patrol_track = NodePath("../Track2")
-mask_pieces = Array[bool]([false, true, false])
-
-[node name="Enemy3" parent="." node_paths=PackedStringArray("patrol_track") groups=["Enemies"] instance=ExtResource("11_aeamo")]
-position = Vector2(92, 167)
-patrol_track = NodePath("../Track3")
-mask_pieces = Array[bool]([false, true, false])
 
 [node name="Enemy4" parent="." node_paths=PackedStringArray("patrol_track") groups=["Enemies"] instance=ExtResource("11_aeamo")]
-position = Vector2(92, 167)
+position = Vector2(85, 196)
 patrol_track = NodePath("../Track4")
-mask_pieces = Array[bool]([true, false, false])
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("13_daicy")]
+position = Vector2(85, 133)
+patrol_track = NodePath("../Track2")
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("patrol_track") instance=ExtResource("13_daicy")]
+position = Vector2(69, 120)
+patrol_track = NodePath("../Track3")
