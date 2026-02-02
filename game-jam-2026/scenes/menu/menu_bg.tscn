@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bdnqrobfwfp5n" path="res://sounds/door_creak.mp3" id="1_aspbr"]
 [ext_resource type="Texture2D" uid="uid://bhs74nm7dw1hm" path="res://assets/ground.png" id="2_fx6fe"]
-[ext_resource type="Texture2D" uid="uid://b8k8fnbbecde2" path="res://assets/superepicawesomedoor.png" id="3_aspbr"]
+[ext_resource type="Texture2D" uid="uid://d101wjmlr1sgr" path="res://assets/Menu_Door.png" id="3_fx6fe"]
 [ext_resource type="Texture2D" uid="uid://cnuiha6tcfw3" path="res://assets/house.png" id="4_fx6fe"]
 
 [sub_resource type="Animation" id="Animation_o07k5"]
@@ -69,7 +69,7 @@ fog_depth_curve = 0.707106
 fog_depth_begin = 0.0
 fog_depth_end = 190.1
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_fx6fe"]
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_t77hy"]
 
 [node name="menu_background" type="Node3D"]
 
@@ -120,14 +120,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755, 17.322157, 26.725342)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.814, -0.706, 0)
 
 [node name="door_picture" type="Sprite3D" parent="door"]
-transform = Transform3D(5.4, 0, 0, 0, 5.4, 0, 0, 0, 5.4, 1.6958613, 3.735755, 0)
+transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 1.6958611, 3.81072, -5.9604645e-08)
 shaded = true
 texture_filter = 0
-texture = ExtResource("3_aspbr")
+texture = ExtResource("3_fx6fe")
 
 [node name="door_creak" type="AudioStreamPlayer3D" parent="door/door_picture"]
 transform = Transform3D(0.16666667, 0, 0, 0, 0.16666667, 0, 0, 0, 0.16666667, 0, -0.073382676, 0)
-stream = SubResource("AudioStreamPolyphonic_fx6fe")
+stream = SubResource("AudioStreamPolyphonic_t77hy")
 
 [node name="house" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 18.155987, 0)
